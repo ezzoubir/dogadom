@@ -1,0 +1,20 @@
+RewriteEngine On 
+
+
+RewriteRule ^$ index.php?language=fr&page=1
+RewriteRule ^accueil.html$ index.php?language=fr&page=1&accueil
+RewriteRule ^promo-(.*).html$ index.php?language=fr&page=2&slug=$1
+RewriteRule ^marchand-(.*).html$ index.php?language=fr&page=3&slug=$1
+RewriteRule ^promos.html$ index.php?language=fr&page=4
+RewriteRule ^marchands.html$ index.php?language=fr&page=6
+RewriteRule ^mes-promos.html$ index.php?language=fr&page=5
+RewriteRule ^commerciaux.html$ index.php?language=fr&page=7
+RewriteRule ^mentions.html$ index.php?language=fr&page=8
+RewriteRule ^contact.html$ index.php?language=fr&page=9
+RewriteRule ^catalogues.html$ index.php?language=fr&page=10
+RewriteRule ^deconnexion.html$ index.php?language=fr&page&espace_membre&logoff
+
+
+#RewriteRule ^photos-(.*).html$ index.php?language=fr&page=5&id_album=$1
+
+RewriteRule ^contact-msg-envoye.html$ index.php?language=fr&page=6&contact&email_sent
