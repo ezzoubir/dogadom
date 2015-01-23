@@ -13,11 +13,6 @@
   mysql_query("SET NAMES 'UTF8' ");
  
 
-  if(isset($_GET['action']) && $_GET['action']=='exporter_xls_mailing_list')
-  {
-      include 'modules/newsletter/exporter_xls.php';
-      exit();
-  }
   if(isset($_GET['action']) && $_GET['action']=='newsletter_envoyer')
   {
       include 'modules/newsletter/newsletter_application_top.php';
