@@ -7,7 +7,7 @@ define('SQL_LOGIN','root');
 define('SQL_PASS','');
 define('SQL_DATABASE','sharebd');
 Define("PREFIXE_BDD","cms_v2_");
-define("BASE_URL","http://localhost/dogadom/"); //url de base 
+define("BASE_URL","http://www.dogadom.com/"); //url de base 
 define("BASE_REP","/"); //url de base 
 define("RepPhoto",'images/photos/');
 define('NBR_ARTICLE_PAR_PAGE',20);
