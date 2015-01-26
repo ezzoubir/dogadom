@@ -65,7 +65,7 @@
             <?php
           }
         ?>
-        <form class="form-3">
+        <form class="form-3" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="POST">
             <p class="clearfix">
                 <label for="login">Username</label>
                 <input type="text" name="FORM_LOGIN" id="login" placeholder="Username">

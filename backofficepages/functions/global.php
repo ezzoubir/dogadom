@@ -11,6 +11,45 @@ function ConvertDateToFr($DateUS)
     return $NewDate;
 }
 
+function do_update($table,$fields,$id){
+	
+	$sql='update '.$table.' set ';
+	foreach($fields as $key=>$val) {
+		$sql .=' '.$key.' = '.$val.' ,';
+	}
+	$sql .=' where id = "'.$id.'"';
+	
+	if(mysql_query($sql)) {
+		echo true;
+	} else {
+		echo false;
+	}
+}
+
+function getCompanyName($id){
+	$sql=mysql_qurey('select * from users where id="'.$id.'"');
+	$data=mysql_fetch_array($sql);
+	
+	return $data['company'];
+}
+
+function getCompanyNameByAd($id){
+	$sql=mysql_qurey('select * from ads where id="'.$id.'"');
+	$data=mysql_fetch_array($sql);
+	$iduser = $data['user_id'];
+	$sql=mysql_qurey('select * from users where id="'.$iduser.'"');
+	$data=mysql_fetch_array($sql);
+	
+	return $data['company'];
+}
+
+function getUserNameByAd($id){
+	$sql=mysql_qurey('select * from users where id="'.$id.'"');
+	$data=mysql_fetch_array($sql);
+	
+	return $data['first_name'].' '.$data['last_name'];
+}
+
 /* Suppression d'un repertoire */
 function deltree($dossier)
 {

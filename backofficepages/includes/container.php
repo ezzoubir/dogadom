@@ -3,7 +3,51 @@
   if(isset($_GET['action']))
   switch ($_GET['action'])
   {
-      case 'page_don' :
+      case 'home' :
+	  include 'modules/home.php';
+      break;
+	  
+	  case 'users' :
+	  include 'modules/users/list.php';
+      break;
+	  
+	  case 'edit_user' :
+	  include 'modules/users/edit.php';
+      break;
+	  
+	  case 'annonceurs' :
+	  include 'modules/annonceurs/list.php';
+      break;
+	  
+	  case 'edit_annonceur' :
+	  include 'modules/annonceurs/edit.php';
+      break;
+	  
+	  case 'ads' :
+	  include 'modules/ads/list.php';
+      break;
+	  
+	  case 'edit_ad' :
+	  include 'modules/ads/edit.php';
+      break;
+	  
+	  case 'shares' :
+	  include 'modules/shares/list.php';
+      break;
+	  
+	  case 'edit_share' :
+	  include 'modules/shares/edit.php';
+      break;
+	  
+	  case 'pages_facebook' :
+	  include 'modules/pages_facebook/list.php';
+      break;
+	  
+	  
+	  	  
+	  
+	  
+	  case 'page_don' :
       include 'modules/module_page_don.php';
       break;
       
