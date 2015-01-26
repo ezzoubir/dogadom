@@ -40,7 +40,11 @@
       break;
 	  
 	  case 'pages_facebook' :
-	  include 'modules/pages_facebook/list.php';
+        include 'modules/pages_facebook/list.php';
+      break;
+
+        case 'paiements' :
+	  include 'modules/paiements/list.php';
       break;
 	  
 	  

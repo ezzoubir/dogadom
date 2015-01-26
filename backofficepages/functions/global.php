@@ -71,4 +71,34 @@ function deltree($dossier)
         @rmdir($dossier);
         }
 
+
+
+ function getTotalUser(){
+ 	$sql=mysql_query('select count(*) as total from users where type="basic"');
+ 	$data=mysql_fetch_array($sql);
+
+ 	return $data['total'];
+ }
+
+ function getTotalAd(){
+ 	$sql=mysql_query('select count(*) as total from ads');
+ 	$data=mysql_fetch_array($sql);
+
+ 	return $data['total'];
+ }
+
+ function getTotalShare(){
+ 	$sql=mysql_query('select count(*) as total from shares');
+ 	$data=mysql_fetch_array($sql);
+
+ 	return $data['total'];
+ }
+
+ function getTotalPaye(){
+ 	$sql=mysql_query('select count(*) as total from shares');
+ 	$data=mysql_fetch_array($sql);
+
+ 	return $data['total'] * 0.25 ;
+ }
+
 ?>

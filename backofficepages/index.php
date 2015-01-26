@@ -299,16 +299,16 @@ if(FCKEDITOR)
                             <a href="index.php?action=ads"><i class="fa fa-list-ul fa-fw"></i> Annonces</a>
                         </li>
 						<li>
-                            <a href="index.php?action=shares"><i class="fa fa-share fa-fw"></i> Shares</a>
+                            <a href="index.php?action=shares"><i class="fa fa-share-alt fa-fw"></i> Shares</a>
                         </li>
 						<li>
                             <a href="index.php?action=pages_facebook"><i class="fa fa-file-o fa-fw"></i> Pages Facebook</a>
                         </li>
 						<li>
-                            <a href="index.php?action=cps"><i class="fa fa-dollar fa-fw"></i> Cost Per Share</a>
-                        </li>
-						<li>
                             <a href="index.php?action=paiements"><i class="fa fa-money fa-fw"></i> Paiements</a>
+                        </li>
+                        <li>
+                            <a href="index.php?action=pubs"><i class="fa fa-bullhorn fa-fw"></i> Espaces Pub</a>
                         </li>
                     </ul>
                 </div>
