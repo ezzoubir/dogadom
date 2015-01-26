@@ -68,8 +68,35 @@
     <div id="page">
         <section id="main">
             <div class="wrap group">
-                <div id="box-container">
-
+                <div class="inner-container group">
+                    <div class="box-hold">
+                        <article class="entry box format-standard">
+                            <div class="entry-intro">
+                                <h1>Annonceur</h1>
+                                <blockquote>
+                                    <p>Vous pouvez annoncer votre publicité pour aider à augmenter la circulation et vos ventes.</p>
+                                </blockquote>
+                                <p>
+                                    <a href="#" class="hp-btn hp-btn-1">Se connecter</a>
+                                    <a href="#" class="hp-btn hp-btn-1">S'inscrire</a>
+                                </p>
+                            </div><!-- .entry-intro -->
+                        </article>
+                    </div><!-- .box-hold -->
+                    <div class="box-hold">
+                        <article class="entry box format-standard">
+                            <div class="entry-intro">
+                                <h1>Membre</h1>
+                                <blockquote>
+                                    <p>En tant que membre, vous pouvez gagner simplement en partageant toutes les publicités que nous affichons.</p>
+                                </blockquote>
+                                <br/>
+                                <p>
+                                    <a href="#" class=""><img src="images/facebook_login.jpg" alt="login_facebook"/></a>
+                                </p>
+                            </div><!-- .entry-intro -->
+                        </article>
+                    </div><!-- .box-hold -->
                 </div>
             </div>
         </section>
