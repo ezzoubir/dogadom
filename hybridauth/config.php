@@ -13,7 +13,7 @@
 
 return 
 	array(
-		"base_url" => "http://www.lespromos.ma/hybridauth/", 
+		"base_url" => "http://www.dogadom.com/hybridauth/", 
 
 		"providers" => array ( 
 			// openid providers
@@ -31,13 +31,13 @@ return
 			),
 
 			"Google" => array ( 
-				"enabled" => true,
-				"keys"    => array ( "id" => "658151406040-6a6mmk1ai07guelvta8jc1pf762urr2k.apps.googleusercontent.com", "secret" => "GYecNaVYF_lkGxWBWjkp_Cbh" )
+				"enabled" => false,
+				"keys"    => array ( "id" => "", "secret" => "" )
 			),
 
 			"Facebook" => array ( 
 				"enabled" => true,
-				"keys"    => array ( "id" => "551334481638849", "secret" => "c96647de9f8310817122306e3e9c1be9" )
+				"keys"    => array ( "id" => "1562922873946573", "secret" => "97b6d63b0abe4816135b158b92c0bd3b" )
 			),
 
 			"Twitter" => array ( 

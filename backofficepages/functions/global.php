@@ -12,10 +12,16 @@ function ConvertDateToFr($DateUS)
 }
 
 function do_update($table,$fields,$id){
-	
+	$i = 0;
+	$len = count($fields);
 	$sql='update '.$table.' set ';
 	foreach($fields as $key=>$val) {
-		$sql .=' '.$key.' = '.$val.' ,';
+		if($i == $len - 1) {
+			$sql .=' '.$key.' = '.$val.'';
+		} else {
+			$sql .=' '.$key.' = '.$val.' ,';
+		}
+	$i++;
 	}
 	$sql .=' where id = "'.$id.'"';
 	
@@ -24,6 +30,31 @@ function do_update($table,$fields,$id){
 	} else {
 		echo false;
 	}
+}
+
+function do_insert($table,$fields){
+	$i = 0;
+	$len = count($fields);
+	$sql='insert into '.$table.'';
+	echo '(';
+	foreach($fields as $key=>$val){
+		if($i == $len - 1) {
+			echo $key;
+		} else {
+			echo $key.',';
+		}
+	}
+	echo ')';
+	echo 'values';
+	echo '(';
+	foreach($fields as $key=>$val){
+		if($i == $len - 1) {
+			echo $val;
+		} else {
+			echo $val.',';
+		}
+	}
+	echo ')';
 }
 
 function getCompanyName($id){

@@ -107,7 +107,12 @@ if(FCKEDITOR)
                             <a href="index.php?action=users"><i class="fa fa-users fa-fw"></i> Users</a>
                         </li>
 						<li>
-                            <a href="index.php?action=ads"><i class="fa fa-list-ul fa-fw"></i> Annonces</a>
+                            <a href="index.php?action=ads"><i class="fa fa-list-ul fa-fw"></i> Annonces<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="index.php?action=edit_ad">Ajouter une annonce</a>
+                                </li>
+                            </ul>
                         </li>
 						<li>
                             <a href="index.php?action=shares"><i class="fa fa-share-alt fa-fw"></i> Shares</a>

@@ -7,7 +7,7 @@
 	
 function GetNewPass()
 		{
-			$NbrChrs=6;
+			$NbrChrs=8;
 			$list = "ABCDEFGHIJKLMNPQRSTUVWXYZ123456789";
 			mt_srand((double)microtime()*1000000);
 			$pass="";
@@ -34,26 +34,31 @@ if(isset($_REQUEST["provider"]))
       $adapter = $hybridauth->getAdapter( $provider );  
       //On récupère les informations du profile  
       $user_data = $adapter->getUserProfile();  
+	  
       /* les variables sont stockées dans $user_data. */
 				
 	
-	    $sql='select * from '.PREFIXE_BDD.'membres where email="'.$user_data->email.'"';
+	    $sql='select * from users where email="'.$user_data->email.'"';
         $res=mysql_query($sql);
 		$ro=mysql_fetch_array($res);
 		 // On interroge notre base de données pour voir si l'adresse email($user_data->email) est déjà attachée à un compte*/  
 		if(mysql_num_rows($res)==1)//Si le compte existe on authentifie  
 		  {  
 			 //Création des variables de session 
-				$_SESSION['id_membre']=$ro['id_membre'];			 
-				$_SESSION['displayname']=$ro['nom'];
+				$_SESSION['id_membre']=$ro['id'];			 
+				$_SESSION['displayname']=$ro['name'];
+				$_SESSION['usertp']=$ro['type'];
 
-				 header('LOCATION:mes-promos.html');
+				 header('LOCATION:ads');
 		  }  
 		  else  
 		  {  
 			 /*Sinon on redirige le visiteur vers le formulaire d'inscription en récupérant au préalable les données qui nous intéressent en vue de pré-remplir les champs*/ 
 			 // on peut continuer
-              $sql='insert into '.PREFIXE_BDD.'membres (nom,adresse,tel,email,password,date_inscription,statut,source)  values("'.$user_data->displayName.'","'.$user_data->address.'","'.$user_data->phone.'","'.$user_data->email.'","'.md5(GetNewPass()).'","'.date('Y-m-d').'","1","'.$_GET['provider'].'")';
+			 $birthdate = $user_data->birthYear.'-'.$user_data->birthMonth.'-'.$user_data->birthDay;
+			 $password = GetNewPass();
+
+              $sql='insert into users (uid_facebook,profile_facebook_url,first_name,last_name,sex,pic_big,name,birthday,city,country,email,phone,password,created,active)  values("'.$user_data->identifier.'","'.$user_data->profileURL.'","'.$user_data->firstName.'","'.$user_data->lastName.'","'.$user_data->gender.'","'.$user_data->photoURL.'","'.$user_data->displayName.'","'.$birthdate.'","'.$user_data->city.'","'.$user_data->country.'","'.$user_data->email.'","'.$user_data->phone.'","'.$password.'","'.date('Y-m-d').'","1")';
               mysql_query($sql);
 			
               // envoi email de confirmation
@@ -64,11 +69,11 @@ DEFINE('MAIL_SIGNATURE','DROITS POUR TOUS');
                  */
                  
                   $message='<div>';
-                  $message.='<br /><br />Merci de vous être enregistré sur lespromos.ma. Vous pouvez désormais<br/> vous identifier en cliquant sur ce lien ci-après ou en le copiant dans votre<br/> navigateur :<br /><br /><a href="'.BASE_URL.'">'.BASE_URL.'</a>';
+                  $message.='<br /><br />Merci de vous être enregistré sur share.ma. Vous pouvez désormais<br/> vous identifier en cliquant sur ce lien ci-après ou en le copiant dans votre<br/> navigateur :<br /><br /><a href="'.BASE_URL.'">'.BASE_URL.'</a>';
 				  $message.='Identifiant : '.$user_data->email;
-				  $message.='Mot de passe : '.GetNewPass();
-				  $message.='<br/>Ou<br/>par votre compte : '.$_GET['provider'];
-				  $message.='Cordialement,<br/>L`\'équipe Groupromo.ma';
+				  $message.='Mot de passe : '.$password;
+				  $message.='<br/>Ou<br/>par votre compte : Facebook';
+				  $message.='Cordialement,<br/>L\'équipe share.ma';
                   $message.='</div>';
                   $mail = new PHPmailer();
                   $mail->IsHTML(true);
@@ -81,19 +86,20 @@ DEFINE('MAIL_SIGNATURE','DROITS POUR TOUS');
                   $mail->Send();
               
 				  // login
-				  $sql='select * from '.PREFIXE_BDD.'membres where email="'.$user_data->email.'"';
+				  $sql='select * from users where email="'.$user_data->email.'"';
 				  $res=mysql_query($sql);
 				  if(mysql_num_rows($res)==1)
 				  {
 					  $ro=mysql_fetch_array($res);
-					  $_SESSION['id_membre']=$ro['id_membre'];
-					  $_SESSION['displayname']=$ro['nom'];
-									  
-					  // on met à jour derniere conncection
-					  $sql='update  '.PREFIXE_BDD.'membres set date_login="'.date('Y-m-d').'" where id_membre="'.$_SESSION['id_membre'].'"';
+					  $_SESSION['id_membre']=$ro['id'];			 
+				      $_SESSION['displayname']=$ro['name'];
+				      $_SESSION['usertp']=$ro['type'];
+
+				      // on met à jour derniere conncection
+					  $sql='update  users set date_login="'.date('Y-m-d').'" where id="'.$_SESSION['id_membre'].'"';
 					  mysql_query($sql);
 					  
-					  header('LOCATION:mes-promos.html');
+					  header('LOCATION:ads');
 				  }  
 		  }  
    }  

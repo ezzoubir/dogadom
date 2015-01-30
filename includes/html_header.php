@@ -38,9 +38,12 @@ if(isset($header_article_facebook))
 <body>
 	<?php 
 		if($_GET['page']==1) {
-			include 'login_interface.php';
-		} elseif($_GET['page']==2){
-			include 'basic/view_ads.php';
+			include 'shma_interface.php';
+		} elseif(isset($_SESSION['id_membre']) && ($_GET['page']==2 ||  $_GET['page']==3)) {
+      if(isset($_SESSION['id_membre']) && $_SESSION['id_membre']!='' && isset($_SESSION['usertp']) && $_SESSION['usertp']='basic')
+			   include 'basic/view_ads.php';
+      elseif(isset($_SESSION['id_membre']) && $_SESSION['id_membre']!='' && isset($_SESSION['usertp']) && $_SESSION['usertp']='premium')
+         include 'premium/view_shares.php';
 		}
 	?>
 	
