@@ -26,56 +26,57 @@ function do_update($table,$fields,$id){
 	$sql .=' where id = "'.$id.'"';
 	
 	if(mysql_query($sql)) {
-		echo true;
+		return true;
 	} else {
-		echo false;
+		return false;
 	}
 }
 
 function do_insert($table,$fields){
-	$i = 0;
+
+	unset($fields['addad']);
+
 	$len = count($fields);
-	$sql='insert into '.$table.'';
-	echo '(';
+
+	$sql='insert into '.$table.' ';
+	$sql.= '(';
 	foreach($fields as $key=>$val){
-		if($i == $len - 1) {
-			echo $key;
-		} else {
-			echo $key.',';
-		}
+		$sql.= $key.',';
 	}
-	echo ')';
-	echo 'values';
-	echo '(';
+	$sql.= 'created';
+	$sql.= ')';
+	$sql.= ' values ';
+	$sql.= '(';
+
+
 	foreach($fields as $key=>$val){
-		if($i == $len - 1) {
-			echo $val;
-		} else {
-			echo $val.',';
-		}
+		$sql.= '"'.$val.'"'.',';
 	}
-	echo ')';
+	$sql.= '"'.date('Y-m-d H:i:s').'"';
+	$sql.= ')';
+
+	if(mysql_query($sql)) { return true; } else { return false; }
 }
 
 function getCompanyName($id){
-	$sql=mysql_qurey('select * from users where id="'.$id.'"');
+	$sql=mysql_query('select * from users where id="'.$id.'"');
 	$data=mysql_fetch_array($sql);
 	
 	return $data['company'];
 }
 
 function getCompanyNameByAd($id){
-	$sql=mysql_qurey('select * from ads where id="'.$id.'"');
+	$sql=mysql_query('select * from ads where id="'.$id.'"');
 	$data=mysql_fetch_array($sql);
 	$iduser = $data['user_id'];
-	$sql=mysql_qurey('select * from users where id="'.$iduser.'"');
+	$sql=mysql_query('select * from users where id="'.$iduser.'"');
 	$data=mysql_fetch_array($sql);
 	
 	return $data['company'];
 }
 
 function getUserNameByAd($id){
-	$sql=mysql_qurey('select * from users where id="'.$id.'"');
+	$sql=mysql_query('select * from users where id="'.$id.'"');
 	$data=mysql_fetch_array($sql);
 	
 	return $data['first_name'].' '.$data['last_name'];
@@ -102,7 +103,18 @@ function deltree($dossier)
         @rmdir($dossier);
         }
 
-
+function GetNewId()
+		{
+			$NbrChrs=13;
+			$list = "ABCDEFGHIJKLMNPQRSTUVWXYZ123456789";
+			mt_srand((double)microtime()*1000000);
+			$pass="";
+			while(strlen( $pass )< $NbrChrs ) 
+			{
+					$pass .= $list[mt_rand(0, strlen($list)-1)];
+				}
+				return $pass;
+		}
 
  function getTotalUser(){
  	$sql=mysql_query('select count(*) as total from users where type="basic"');
