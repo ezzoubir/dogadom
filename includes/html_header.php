@@ -15,6 +15,7 @@
 ?>
 <title><?php echo META_TITLE; ?></title>
 <meta charset="utf-8">
+
 <meta name="keywords" content="<?php echo META_KEYWORDS; ?>" />
 <meta name="description" content="<?php echo META_DESCRIPTION; ?>" />
 <meta name="revisit-after" content="1 days" />
@@ -26,6 +27,18 @@ if(isset($header_article_facebook))
   echo $header_article_facebook;
 }
 ?>
+<?php if(isset($_GET['idad'])) { 
+    $sqlad='select * from ads where aid="'.$_GET['idad'].'"';
+    $reqad=mysql_query($sqlad);
+    $datad=mysql_fetch_array($reqad);                 
+?>
+<meta content="<?php echo $datad['title']; ?>" property="og:title" />
+<meta content="website" property="og:type" />
+<meta content="<?php echo $datad['url']; ?>" property="og:url" />
+<meta content="<?php echo BASE_URL.RepPhoto.'pic_ads/'.$datad['image']; ?>" property="og:image" />
+<meta content="<?php echo $datad['description']; ?>" property="og:description" />
+<meta content="WINWIN" property="og:site_name" />
+<?php } ?> 
 
     <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic|Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="style.css" type="text/css">
@@ -40,10 +53,13 @@ if(isset($header_article_facebook))
 		if($_GET['page']==1) {
 			include 'shma_interface.php';
 		} elseif(isset($_SESSION['id_membre']) && ($_GET['page']==2 ||  $_GET['page']==3)) {
-      if(isset($_SESSION['id_membre']) && $_SESSION['id_membre']!='' && isset($_SESSION['usertp']) && $_SESSION['usertp']='basic')
+       if(isset($_SESSION['id_membre']) && $_SESSION['id_membre']!='' && isset($_SESSION['usertp']) && $_SESSION['usertp']='basic' && !isset($_GET['idad'])) {
 			   include 'basic/view_ads.php';
-      elseif(isset($_SESSION['id_membre']) && $_SESSION['id_membre']!='' && isset($_SESSION['usertp']) && $_SESSION['usertp']='premium')
+      }  elseif(isset($_SESSION['id_membre']) && $_SESSION['id_membre']!='' && isset($_SESSION['usertp']) && $_SESSION['usertp']='premium' && !isset($_GET['idad'])) {
          include 'premium/view_shares.php';
+      } elseif(isset($_SESSION['id_membre']) && $_SESSION['id_membre']!='' && isset($_SESSION['usertp']) && $_SESSION['usertp']='basic' && isset($_GET['idad'])) {
+         include 'basic/detail_ad.php';
+      }
 		}
 	?>
 	

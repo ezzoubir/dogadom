@@ -568,12 +568,12 @@ Content
   color: #a3a3a3;
   font-size: 12px;
   padding-left: 16px;
-  background: url("images/sprites.png") no-repeat scroll 0 2px transparent;
+  background: url("images/sprites.png") no-repeat scroll -1px 1px transparent;
 }
 
 .comments-no:hover {
   color: #555;
-  background-position: -1px -22px;
+  background-position: -1px -23px;
 }
 
 .heart-this, .heart-this:visited {

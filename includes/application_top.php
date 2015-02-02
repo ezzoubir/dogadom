@@ -197,7 +197,25 @@ function truncate($string, $max_length = 80, $replacement = '', $trunc_at_space 
         $row['texte']=str_replace('../images/pages/','images/pages/',$row['texte']);
         return stripslashes($row['texte']);
 
-  }  
+  } 
+
+
+  function getnbrTotalShare($aid)
+  {
+      $sql='select * from shares where ad_id = "'.$aid.'"';
+      $req=mysql_query($sql);
+      $num=mysql_num_rows($req);
+      
+      return $num;
+  }
+
+  function getCompanyName($id){
+  $sql=mysql_query('select * from users where id="'.$id.'"');
+  $data=mysql_fetch_array($sql);
+  
+  return $data['company'];
+}
+
   function getPageStaticTitre($id)
   {
         $sql='select * from  '.PREFIXE_BDD.'pages_statiques  where id_page="'.(int)$id.'"';

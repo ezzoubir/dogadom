@@ -21,7 +21,7 @@
         <div id="site-head">
             <div class="wrap group">
                 <hgroup class="logo">
-                    <h1><a href="index.html"><img src="demo/color-default.png" alt=""></a></h1>
+                    <h1><a href="index.html"><!--img src="demo/color-default.png" alt=""--></a></h1>
                 </hgroup>
 
                 <div class="header-wgt group">
@@ -29,10 +29,9 @@
                         <nav>
                             <div class="wrap group">
                                 <ul id="navigation" class="group">
-                                    <li class="current_page_item"><a href="index.html">Accueil</a></li>
-                                    <li class=""><a href="pubs.html">Partager les publicités</a></li>
-                                    <li class=""><a href="communaute.html">Communauté</a></li>
-                                    <li class=""><a href="contact.html">Contact</a></li>
+                                    <li class="current_page_item"><a href="/">Accueil</a></li>
+                                    <li class=""><a href="/ads">Publicités</a></li>
+                                    <li class=""><a href="/contact">Contact</a></li>
                                 </ul>
                             </div><!-- .wrap < nav -->
                         </nav>
