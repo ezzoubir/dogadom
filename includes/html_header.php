@@ -1,7 +1,6 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html<?php if(isset($declaration_entete_html)) echo $declaration_entete_html; ?>>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <base href="<?php echo BASE_URL; ?>" />
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo BASE_URL; ?>favicon.ico" />
 <?php
@@ -15,12 +14,11 @@
 ?>
 <title><?php echo META_TITLE; ?></title>
 <meta charset="utf-8">
-
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
 <meta name="keywords" content="<?php echo META_KEYWORDS; ?>" />
 <meta name="description" content="<?php echo META_DESCRIPTION; ?>" />
 <meta name="revisit-after" content="1 days" />
 <meta name="robots" content="index, follow" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <?php
 if(isset($header_article_facebook))
 {
@@ -39,28 +37,20 @@ if(isset($header_article_facebook))
 <meta content="<?php echo $datad['description']; ?>" property="og:description" />
 <meta content="WINWIN" property="og:site_name" />
 <?php } ?> 
-
-    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic|Yanone+Kaffeesatz' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <link rel="stylesheet" href="colors/default.css" type="text/css" id="color">  
-    
-    <link rel="stylesheet" href="js/fancybox/source/jquery.fancybox.css" type="text/css">
-    <script src="js/modernizr.js" type="text/javascript">
+<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+<!--[if lte IE 8]>
+  <link rel="stylesheet" type="text/css" href="assets/css/ie8.css" />
+<![endif]-->
 </script>
 </head>
 <body>
-	<?php 
-		if($_GET['page']==1) {
-			include 'shma_interface.php';
-		} elseif(isset($_SESSION['id_membre']) && ($_GET['page']==2 ||  $_GET['page']==3)) {
-       if(isset($_SESSION['id_membre']) && $_SESSION['id_membre']!='' && isset($_SESSION['usertp']) && $_SESSION['usertp']='basic' && !isset($_GET['idad'])) {
-			   include 'basic/view_ads.php';
-      }  elseif(isset($_SESSION['id_membre']) && $_SESSION['id_membre']!='' && isset($_SESSION['usertp']) && $_SESSION['usertp']='premium' && !isset($_GET['idad'])) {
-         include 'premium/view_shares.php';
-      } elseif(isset($_SESSION['id_membre']) && $_SESSION['id_membre']!='' && isset($_SESSION['usertp']) && $_SESSION['usertp']='basic' && isset($_GET['idad'])) {
-         include 'basic/detail_ad.php';
-      }
-		}
-	?>
-	
-</body></html>
+<?php 
+  include 'header.php';
+  include 'container.php';
+  include 'footer.php'; 
+?>	
+<script src="assets/js/jquery-1.9.0.min.js" type="text/javascript"></script>
+<script src="assets/js/jquery.components.js" type="text/javascript"></script>
+<script src="assets/js/custom.js" type="text/javascript"></script>	
+</body>
+</html>
