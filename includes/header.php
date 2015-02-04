@@ -54,6 +54,12 @@
     </div>
     <!-- slider end -->
     <?php } ?>
+    <?php if($_GET['page']==4) { ?>
+    <!-- google map -->
+    <div class="menuBGSlider" id="map_canvas">
+    </div>
+    <!-- google map end -->
+    <?php } ?>
     </div>
     <!-- header end -->
     <div class="clearfix"></div>

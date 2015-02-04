@@ -26,3 +26,41 @@
 <script src="assets/js/jquery-1.9.0.min.js" type="text/javascript"></script>
 <script src="assets/js/jquery.components.js" type="text/javascript"></script>
 <script src="assets/js/custom.js" type="text/javascript"></script>
+<?php if($_GET['page']==4) { ?>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=false"></script>
+<script type="text/javascript">
+function initialize() {
+  var myLatlng = new google.maps.LatLng(40.714353,-74.005973);
+  var mapOptions = {
+    zoom: 12,
+    center: myLatlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP,
+    mapTypeControl: false,
+    scrollwheel: false,
+    scaleControl: false,
+    streetViewControl: false,
+    draggable: false,
+    panControl: true,
+    panControlOptions: {
+        position: google.maps.ControlPosition.BOTTOM_CENTER
+    },
+    zoomControl: true,
+    zoomControlOptions: {
+        style: google.maps.ZoomControlStyle.LARGE,
+        position: google.maps.ControlPosition.LEFT_CENTER
+    }
+  }
+  var map = new google.maps.Map(document.getElementById("map_canvas"),
+      mapOptions);
+      
+  var marker = new google.maps.Marker({
+    position: myLatlng,
+    title:"Hello World!"
+});
+
+// To add the marker to the map, call setMap();
+marker.setMap(map);
+}
+initialize();
+</script>
+<?php } ?>

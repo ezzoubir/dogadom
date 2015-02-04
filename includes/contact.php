@@ -11,8 +11,7 @@
 	<div class="container_12">
 		<!-- container with sidebar -->
 		<div class="content right grid_9">
-			<div class="divider_page"><h4>Get In Touch With Us!</h4></div>
-			<p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.</p>
+			<div class="divider_page"><h4>Restes en contact avec nous !</h4></div>
 			<div class="contact_form">
 				<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" name="messageform">
 					<div class="grid_3 alpha">
@@ -36,7 +35,7 @@
 		<!-- sidebar left -->
 		<div class="sidebar left grid_3">
 			<div class="divider_page"><h4>Contact Info</h4></div>
-			<p><b>Adresse:</b><br>Sokullu Mehmet Pasa Street 1234, Country<br><b>Mobile:</b><br>06 71 70 83 12<br><b>Fax:</b><br>06 71 70 83 12</p>
+			<p><b>Adresse:</b><br>Sokullu Mehmet Pasa Street 1234, Country<br><b>Mobile:</b><br>06 71 70 83 12<br><b>Gsm:</b><br>06 71 70 83 12</p>
 			<div class="divider_page"><h4>Get Social</h4></div>
 			<p>
 				<a href="#" class="social_icons16 icon16_11 tooltip_s" title="Google Plus"></a>
