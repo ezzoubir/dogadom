@@ -152,7 +152,7 @@ ul#mainmenu > li a												{border: 0; font-size: 18px; line-height: 1em; dis
 #mainmenu .contact_icon a:hover																{background-position: bottom right;}
 
 .mobile_link											{display: none !important;}
-.search_bar											{top:0;position: absolute;}
+.search_bar											{top:20px;position: absolute;}
 .search_bar input[type="text"]					{border: 0; padding: 0; margin: 0; background: none; text-align: center; position: relative; font-size: 10px;}
 .search_bar input[type="submit"]				{border: 0; margin: 0; padding: 0; position: relative; text-indent: -1000em; cursor: pointer;}
 

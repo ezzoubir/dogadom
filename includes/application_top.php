@@ -135,6 +135,8 @@
   
         return stripslashes($row['titre']);
   }
+
+
   
   function getPageText($id)
   {
@@ -198,6 +200,27 @@ function truncate($string, $max_length = 80, $replacement = '', $trunc_at_space 
         return stripslashes($row['texte']);
 
   } 
+
+
+  function getTotalGain($user)
+  {
+      $sql='select * from shares where finished = "1" and payed = "0" and user_id = "'.$user.'"';
+      $req=mysql_query($sql);
+      $num=mysql_num_rows($req);
+      
+      return $num * 0.25;
+  }
+
+  function checkribUser($user)
+  {
+      $sql='select * from users where user_id = "'.$user.'"';
+      $req=mysql_query($sql);
+      $data=@mysql_fetch_array($req);
+      
+      if($data['rib']==0) {
+          echo '<img src="assets/images/icons/alert.gif" />';
+      } 
+  }
 
 
   function getnbrTotalShare($aid)

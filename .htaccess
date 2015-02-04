@@ -1,7 +1,8 @@
 RewriteEngine On 
 
 RewriteRule ^$ index.php?language=fr&page=1
-RewriteRule ^ads$ index.php?language=fr&page=2&tp=basic
-RewriteRule ^ad-(.*)$ index.php?language=fr&page=2&tp=basic&idad=$1
-RewriteRule ^statics$ index.php?language=fr&page=3&tp=premium
+RewriteRule ^annonces$ index.php?language=fr&page=2&tp=basic
+RewriteRule ^ad-(.*)$ index.php?language=fr&page=3&tp=basic&idad=$1
+RewriteRule ^contact$ index.php?language=fr&page=4&tp=contact
+RewriteRule ^statics$ index.php?language=fr&page=5&tp=premium
 

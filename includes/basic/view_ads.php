@@ -1,35 +1,54 @@
-    <?php include 'includes/header.php'; ?>
-    <div id="page">
-        <section id="main">
-            <div class="wrap group">
-                <div id="box-container">
-                    <div id="entry-listing" class="group">
-                        <?php
-                            $sql='SELECT * FROM ads WHERE active = 1 and id NOT IN (SELECT ad_id from shares where user_id='.$_SESSION['id_membre'].') order by id';
-                            $req=mysql_query($sql);
-                            while($data=mysql_fetch_array($req)) {
-                        ?>
-                        <article id="post-215" class="post-215 category-people category-photography category-pretty-girls entry box format-image">
-                            <div class="entry-content-cnt">
-                                <div class="entry-content">
-                                    <a href="<?php echo 'ad-'.$data['aid']; ?>" class="thumb" title="">
-                                    <img src="<?php echo RepPhoto.'pic_ads/'.$data['image']; ?>" class="attachment-ci_listing_thumb" alt="<?php echo $data['title']; ?>" title="<?php echo $data['description']; ?>"></a>
+    <!-- header text -->
+    <div class="header_text">
+        <div class="container_12">
+            <div class="grid_12">
+                <h1>Annonces</h1>
+            </div>
+        </div>
+    </div>
+    <!-- header text end -->
+    <!-- container 12 -->
+    <div class="container_12">
+        <!-- portfolio items -->
+        <div class="portfolio_items four_columns">
+            <?php
+                $sql='SELECT * FROM ads WHERE active = 1 and id NOT IN (SELECT ad_id from shares where user_id='.$_SESSION['id_membre'].') order by id';
+                $req=mysql_query($sql);
+                while($data=mysql_fetch_array($req)) {
+            ?>
+            <!-- a portfolio item -->
+            <div class="a_item" data-cats="photography interactive">
+                <div class="grid_3">
+                    <!-- item image -->
+                    <div class="a_work">
+                        <!-- image -->  
+                        <div class="normal">
+                            <img src="<?php echo RepPhoto.'pic_ads/'.$data['image']; ?>" alt="" class="grid_image"/>
+                            <div class="work_heading"><?php echo $data['title']; ?></div>
+                        </div>
+                        <!-- image end -->
+                        <!-- hover effect -->
+                        <div class="hover">
+                            <div class="work_links">
+                                <div><a href="<?php echo 'ad-'.$data['aid']; ?>" class="misc_white_icons16 icon16_67" title="<?php echo $data['title']; ?>"></a></div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <!-- social links -->
+                            <div class="social_links">
+                                <div class="share_icons">
+                                    <a href="" target="_blank" class="social_colored facebook tooltip_s" title="Share on Facebook"><?php echo getnbrTotalShare($data['aid']); ?></a>
                                 </div>
                             </div>
-
-                            <div class="entry-desc">
-                                <h1><a href="#" title="Permalink to High fashion model in autumn/winter clothes wearing sunglasses."><?php echo $data['description']; ?></a></h1>
-
-                                <div class="entry-meta group">
-                                    <a class="comments-no" href="#"><?php echo getnbrTotalShare($data['aid']); ?></a> <a class="entry-permalink" href="<?php echo 'ad-'.$data['aid']; ?>" title="<?php echo $data['description']; ?>"><?php echo $data['description']; ?></a>
-                                </div>
-                            </div>
-                        </article>
-                        <?php } ?>
-                    </div><!-- #entry-listing -->
-
+                            <!-- social links end -->
+                        </div>
+                        <!-- hover effect end -->
+                    </div>
+                    <!-- item image end -->
                 </div>
-            </div><!-- .wrap < #main -->
-        </section><!--  #main -->
-
-        <?php include 'includes/footer.php'; ?>
+            </div>
+            <!-- a portfolio item end -->
+            <?php } ?>
+        </div>
+        <!-- portfolio items end -->
+    </div>
+    <!-- container 12 end -->
