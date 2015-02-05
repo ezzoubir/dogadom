@@ -6,7 +6,7 @@
                 <p>Chez WinWin, vous êtes payés pour partager les publicites de nos annonceurs.</p>
             </div>
             <div class="grid_3 align_right">
-                <a href="/login.php?provider=facebook" target="_blank" class="sc_button large box_button"><span class="social_white_icons16 icon16_22 icon"></span><span class="icon_divider"></span><span class="button_text">Se connecter</span></a>
+                <a href="/login.php?provider=facebook" class="sc_button large box_button"><span class="social_white_icons16 icon16_22 icon"></span><span class="icon_divider"></span><span class="button_text">Se connecter</span></a>
             </div>
         </div>
     </div>
@@ -38,7 +38,7 @@
                         <div class="feature_heading">
                             <div class="medium">Annonceur</div>
                         </div>
-                        <p class="feature_desc">Vous pouvez annoncer votre publicité pour aider à augmenter la circulation et vos ventes.</p>
+                        <p class="feature_desc">Vous pouvez annoncer votre publicité pour aider à augmenter la circulation et vos ventes.<br/></p>
                     </div>
                     <div class="feature_link"><a href="portfolio_one_column.html" class="arrows_icons16 icon16_5 tooltip_s" title="Read More"></a></div>
                 </div>

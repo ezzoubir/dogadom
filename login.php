@@ -49,7 +49,7 @@ if(isset($_REQUEST["provider"]))
 				$_SESSION['displayname']=$ro['name'];
 				$_SESSION['usertp']=$ro['type'];
 
-				 header('LOCATION:ads');
+				 header('LOCATION:annonces');
 		  }  
 		  else  
 		  {  
@@ -58,7 +58,7 @@ if(isset($_REQUEST["provider"]))
 			 $birthdate = $user_data->birthYear.'-'.$user_data->birthMonth.'-'.$user_data->birthDay;
 			 $password = GetNewPass();
 
-              $sql='insert into users (uid_facebook,profile_facebook_url,first_name,last_name,sex,pic_big,name,birthday,city,country,email,phone,password,created,active)  values("'.$user_data->identifier.'","'.$user_data->profileURL.'","'.$user_data->firstName.'","'.$user_data->lastName.'","'.$user_data->gender.'","'.$user_data->photoURL.'","'.$user_data->displayName.'","'.$birthdate.'","'.$user_data->city.'","'.$user_data->country.'","'.$user_data->email.'","'.$user_data->phone.'","'.$password.'","'.date('Y-m-d').'","1")';
+              $sql='insert into users (uid_facebook,profile_facebook_url,first_name,last_name,sex,pic_big,name,birthday,city,country,email,phone,password,type,created,active)  values("'.$user_data->identifier.'","'.$user_data->profileURL.'","'.$user_data->firstName.'","'.$user_data->lastName.'","'.$user_data->gender.'","'.$user_data->photoURL.'","'.$user_data->displayName.'","'.$birthdate.'","'.$user_data->city.'","'.$user_data->country.'","'.$user_data->email.'","'.$user_data->phone.'","'.$password.'","basic",'.date('Y-m-d').'","1")';
               mysql_query($sql);
 			
               // envoi email de confirmation
@@ -99,7 +99,7 @@ DEFINE('MAIL_SIGNATURE','DROITS POUR TOUS');
 					  $sql='update  users set date_login="'.date('Y-m-d').'" where id="'.$_SESSION['id_membre'].'"';
 					  mysql_query($sql);
 					  
-					  header('LOCATION:ads');
+					  header('LOCATION:annonces');
 				  }  
 		  }  
    }  

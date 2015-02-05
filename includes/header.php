@@ -13,7 +13,7 @@
             <li><a href="annonces">Annonces</a></li>
             <?php if(isset($_SESSION['id_membre'])) { ?>
             <li><a href="<?php echo BASE_URL; ?>profil"><?php checkribUser($_SESSION['id_membre']); ?> Mon profil</a></li>
-            <li><a href="<?php echo BASE_URL; ?>logout">Deconnexion</a></li>
+            <li><a href="<?php echo BASE_URL; ?>deconnexion">Deconnexion</a></li>
             <?php } ?>
             <li class="contact_icon"><span class="circle_effect"></span><a href="<?php echo BASE_URL; ?>/contact">Contact</a></li>
         </ul>
