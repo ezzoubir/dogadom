@@ -30,13 +30,13 @@
                         <!-- hover effect -->
                         <div class="hover">
                             <div class="work_links">
-                                <div><a href="<?php echo 'ad-'.$data['aid']; ?>" class="misc_white_icons16 icon16_67" title="<?php echo $data['title']; ?>"></a></div>
+                                <div><a href="<?php echo BASE_URL.'ad-'.$data['aid']; ?>" class="misc_white_icons16 icon16_67" title="<?php echo $data['title']; ?>"></a></div>
                             </div>
                             <div class="clearfix"></div>
                             <!-- social links -->
                             <div class="social_links">
                                 <div class="share_icons">
-                                    <a href="" target="_blank" class="social_colored facebook tooltip_s" title="Share on Facebook"><?php echo getnbrTotalShare($data['aid']); ?></a>
+                                    <a href="" target="_blank" class="tooltip_s" title="Total de partage sur Facebook"><?php echo getnbrTotalShare($data['aid']); ?></a>
                                 </div>
                             </div>
                             <!-- social links end -->

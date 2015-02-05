@@ -1,62 +1,251 @@
-    <?php include 'includes/header.php'; ?>
-    <div id="page">
-        <section id="main">
-            <div class="wrap group">
-                <div class="inner-container group">
-                    <div class="box-hold group">
-                        <article class="entry box format-standard">
-                        	<?php 
-                        		$sql='select * from ads where aid="'.$_GET['idad'].'"';
-                        		$req=mysql_query($sql);
-                        		$data=mysql_fetch_array($req);
-                        	?>
-                            <div class="entry-intro">
-                                <h1><?php echo $data['title']; ?></h1><span class="entry-meta">Ajouté par <strong><?php echo getCompanyName($data['user_id']); ?></strong></span>
-                            </div><!-- .entry-intro -->
+<!-- header text -->
+    <?php 
+        $sql='select * from ads where aid="'.$_GET['idad'].'"';
+        $req=mysql_query($sql);
+        $data=mysql_fetch_array($req);
+    ?>
+    <div class="header_text">
+        <div class="container_12">
+            <div class="grid_12">
+                <h1><?php echo $data['title']; ?></h1>
+            </div>
+        </div>
+    </div>
+    <!-- header text end -->
+    <!-- container 12 -->
+    <div class="container_12">
+        <!-- project container -->
+        <script> 
+          FB.init({appId: "1562922873946573", status: true, cookie: true});//change your application ID
 
-                            <figure class="entry-image"><a href="#" ><img src="<?php echo RepPhoto.'pic_ads/'.$data['image']; ?>" alt=""></a></figure>
+          function postToFeed() {
 
-                            <div class="entry-content">
-                                <p><?php echo $data['description']; ?></p>
-							 </div>
+            // calling the API ...
+            var obj = {
+              method: "share",
+              href: "<?php echo BASE_URL.'ad-'.$data['aid']; ?>"
+            };
+            
+            function callback(response) {
+                if (response && response.post_id) {
+                  alert('Post was published.');
+                } else {
+                  alert('Post was not published.');
+                }
+              }
 
-                            <div class="social-share">
-                            	<a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo BASE_URL.'ad-'.$_GET['idad']; ?>" target="_blank">
-								  	Partager sur Facebook
-								</a>
-                            </div>
-                        </article>
-                    </div><!-- .box-hold -->
-
-                    <div class="box-hold">
-                        <div class="box post-comments">
-                            <div class="box-content">
-                                <h3>Autres publicité</h3>
-                                <ol id="comment-list" class="group">
-                                	<?php
-			                            $sql='SELECT * FROM ads WHERE active = 1 and id NOT IN (SELECT ad_id from shares where user_id='.$_SESSION['id_membre'].') order by id';
-			                            $req=mysql_query($sql);
-			                            while($dataoth=mysql_fetch_array($req)) {
-			                        ?>
-                                    <li class="comment">
-                                        <span class="comment-meta">Ajouté par <strong><?php echo getCompanyName($dataoth['user_id']); ?></strong></span>
-
-                                        <div class="comment-text group">
-                                            <img class="avatar" src="<?php echo RepPhoto.'pic_ads/'.$dataoth['image']; ?>" alt="">
-
-                                            <div class="comment-copy">
-                                                <p><?php echo $dataoth['description']; ?></p>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <?php } ?>
-                                </ol>
-                                <a class="load-more-comments" href="/ads">Voir plus de publicités ...</a>
-                            </div>
+            FB.ui(obj, callback);
+          }
+        
+        </script>
+        <div class="grid_5">
+                <div class="divider_page"><h4><?php echo $data['title']; ?></h4></div>
+                <!-- project content -->
+                <div class="project-content">
+                    <p><?php echo $data['description']; ?></p>
+                </div>
+                <!-- project content end -->
+                <!-- share options -->
+                <div class="share-post">
+                    <div class="float_left heading">
+                        Partager sur
+                    </div>
+                    <div class="float_right socialicons">
+                        <a onclick='postToFeed(); return false;'><img src="assets/images/icons/facebook.png"  alt="partager sur facebook" style="margin-top: -2px;"/></a>
+                    </div>
+                </div>
+                <!-- share options end -->
+                <div class="clearfix"></div>
+                <div class="divider_page"><h4>Project Details</h4></div>
+                <!-- project meta info -->
+                <div class="meta-info project-meta">
+                    <div class="date-info">Ajouté par : <?php echo getCompanyName($data['user_id']); ?></div>
+                </div>
+        </div>
+        <div class="grid_7">
+            <!-- project slider -->
+            <div class="theme-dark">
+                <div style="text-align:center">
+                    <img src="<?php echo RepPhoto.'pic_ads/'.$data['image']; ?>" alt="" />
+                </div>
+            </div>
+            <!-- project slider end -->
+        </div>
+        <div class="clearfix"></div>
+        <!-- recent works -->
+        <div class="grid_12">
+            <div class="divider_page">
+                <h2>Related Project</h2>
+                <div class="heading_button">
+                    <div class="prev_button" id="recentworks_prev">Prev</div>
+                    <div class="next_button" id="recentworks_next">Next</div>
+                </div>
+            </div>
+        </div>
+        <div id="recentWorks">
+            <!-- a work -->
+            <div class="a_work">    
+                <div class="normal">
+                    <img src="assets/images/mix/940/businessman_fixed.jpg" alt="Business Man" class="grid_image"/>
+                    <div class="work_heading">Business Man</div>
+                </div>
+                <div class="hover">
+                    <h4>Business Man</h4>
+                    <div class="work_links">
+                        <div><a href="assets/images/mix/940/businessman.jpg" data-rel="prettyPhoto" class="misc_white_icons16 icon16_15" title="Big Size"></a></div>
+                        <div><a href="single_project.html" class="misc_white_icons16 icon16_67" title="Project Details"></a></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- social links -->
+                    <div class="social_links">
+                        <div class="share_text">Share on</div>
+                        <div class="share_icons">
+                            <a href="http://twitthis.com/twit?url=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored twitter tooltip_s" title="Twitter"></a>
+                            <a href="http://www.facebook.com/sharer.php?u=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored facebook tooltip_s" title="Facebook"></a>
+                            <a href="http://linkedin.com/shareArticle?mini=true&amp;url=http://dreamlife.designforlifeden.com&amp;title=DreamLife%20Responsive%20Template" target="_blank" class="social_colored linkedin tooltip_s" title="LinkedIn"></a>
+                            <a href="mailto:?subject=DreamLife%20Responsive%20Template&amp;body=http://dreamlife.designforlifeden.com" class="social_colored mail tooltip_s" title="Mail"></a>
                         </div>
-                    </div><!-- .box-hold -->
-                </div><!-- .inner-container -->
-            </div><!-- .wrap < #main -->
-        </section><!--  #main -->
-
-        <?php include 'includes/footer.php'; ?>
+                    </div>
+                    <!-- social links end -->
+                </div>
+            </div>
+            <!-- a work end -->
+            <!-- a work -->
+            <div class="a_work">    
+                <div class="normal">
+                    <img src="assets/images/mix/940/luxury_fixed.jpg" alt="Luxury Life" class="grid_image"/>
+                    <div class="work_heading">Luxury Life</div>
+                </div>
+                <div class="hover">
+                    <h4>Luxury Life</h4>
+                    <div class="work_links">
+                        <div><a href="assets/images/mix/940/luxury.jpg" data-rel="prettyPhoto" class="misc_white_icons16 icon16_15" title="Big Size"></a></div>
+                        <div><a href="single_project.html" class="misc_white_icons16 icon16_67" title="Project Details"></a></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- social links -->
+                    <div class="social_links">
+                        <div class="share_text">Share on</div>
+                        <div class="share_icons">
+                            <a href="http://twitthis.com/twit?url=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored twitter tooltip_s" title="Twitter"></a>
+                            <a href="http://www.facebook.com/sharer.php?u=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored facebook tooltip_s" title="Facebook"></a>
+                            <a href="http://linkedin.com/shareArticle?mini=true&amp;url=http://dreamlife.designforlifeden.com&amp;title=DreamLife%20Responsive%20Template" target="_blank" class="social_colored linkedin tooltip_s" title="LinkedIn"></a>
+                            <a href="mailto:?subject=DreamLife%20Responsive%20Template&amp;body=http://dreamlife.designforlifeden.com" class="social_colored mail tooltip_s" title="Mail"></a>
+                        </div>
+                    </div>
+                    <!-- social links end -->
+                </div>
+            </div>
+            <!-- a work end -->
+            <!-- a work -->
+            <div class="a_work">    
+                <div class="normal">
+                    <img src="assets/images/mix/940/morning_fixed.jpg" alt="Good Morning" class="grid_image"/>
+                    <div class="work_heading">Good Morning</div>
+                </div>
+                <div class="hover">
+                    <h4>Good Morning</h4>
+                    <div class="work_links">
+                        <div><a href="assets/images/mix/940/morning.jpg" data-rel="prettyPhoto" class="misc_white_icons16 icon16_15" title="Big Size"></a></div>
+                        <div><a href="single_project.html" class="misc_white_icons16 icon16_67" title="Project Details"></a></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- social links -->
+                    <div class="social_links">
+                        <div class="share_text">Share on</div>
+                        <div class="share_icons">
+                            <a href="http://twitthis.com/twit?url=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored twitter tooltip_s" title="Twitter"></a>
+                            <a href="http://www.facebook.com/sharer.php?u=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored facebook tooltip_s" title="Facebook"></a>
+                            <a href="http://linkedin.com/shareArticle?mini=true&amp;url=http://dreamlife.designforlifeden.com&amp;title=DreamLife%20Responsive%20Template" target="_blank" class="social_colored linkedin tooltip_s" title="LinkedIn"></a>
+                            <a href="mailto:?subject=DreamLife%20Responsive%20Template&amp;body=http://dreamlife.designforlifeden.com" class="social_colored mail tooltip_s" title="Mail"></a>
+                        </div>
+                    </div>
+                    <!-- social links end -->
+                </div>
+            </div>
+            <!-- a work end -->
+            <!-- a work -->
+            <div class="a_work">    
+                <div class="normal">
+                    <img src="assets/images/mix/940/shopping_fixed.jpg" alt="Shopping" class="grid_image"/>
+                    <div class="work_heading">Shopping</div>
+                </div>
+                <div class="hover">
+                    <h4>Shopping</h4>
+                    <div class="work_links">
+                        <div><a href="assets/images/mix/940/shopping.jpg" data-rel="prettyPhoto" class="misc_white_icons16 icon16_15" title="Big Size"></a></div>
+                        <div><a href="single_project.html" class="misc_white_icons16 icon16_67" title="Project Details"></a></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- social links -->
+                    <div class="social_links">
+                        <div class="share_text">Share on</div>
+                        <div class="share_icons">
+                            <a href="http://twitthis.com/twit?url=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored twitter tooltip_s" title="Twitter"></a>
+                            <a href="http://www.facebook.com/sharer.php?u=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored facebook tooltip_s" title="Facebook"></a>
+                            <a href="http://linkedin.com/shareArticle?mini=true&amp;url=http://dreamlife.designforlifeden.com&amp;title=DreamLife%20Responsive%20Template" target="_blank" class="social_colored linkedin tooltip_s" title="LinkedIn"></a>
+                            <a href="mailto:?subject=DreamLife%20Responsive%20Template&amp;body=http://dreamlife.designforlifeden.com" class="social_colored mail tooltip_s" title="Mail"></a>
+                        </div>
+                    </div>
+                    <!-- social links end -->
+                </div>
+            </div>
+            <!-- a work end -->
+            <!-- a work -->
+            <div class="a_work">    
+                <div class="normal">
+                    <img src="assets/images/mix/940/urbanstyle_fixed.jpg" alt="Luxury Life" class="grid_image"/>
+                    <div class="work_heading">Urban Style</div>
+                </div>
+                <div class="hover">
+                    <h4>Urban Style</h4>
+                    <div class="work_links">
+                        <div><a href="assets/images/mix/940/urbanstyle.jpg" data-rel="prettyPhoto" class="misc_white_icons16 icon16_15" title="Big Size"></a></div>
+                        <div><a href="single_project.html" class="misc_white_icons16 icon16_67" title="Project Details"></a></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- social links -->
+                    <div class="social_links">
+                        <div class="share_text">Share on</div>
+                        <div class="share_icons">
+                            <a href="http://twitthis.com/twit?url=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored twitter tooltip_s" title="Twitter"></a>
+                            <a href="http://www.facebook.com/sharer.php?u=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored facebook tooltip_s" title="Facebook"></a>
+                            <a href="http://linkedin.com/shareArticle?mini=true&amp;url=http://dreamlife.designforlifeden.com&amp;title=DreamLife%20Responsive%20Template" target="_blank" class="social_colored linkedin tooltip_s" title="LinkedIn"></a>
+                            <a href="mailto:?subject=DreamLife%20Responsive%20Template&amp;body=http://dreamlife.designforlifeden.com" class="social_colored mail tooltip_s" title="Mail"></a>
+                        </div>
+                    </div>
+                    <!-- social links end -->
+                </div>
+            </div>
+            <!-- a work end -->
+            <!-- a work -->
+            <div class="a_work">    
+                <div class="normal">
+                    <img src="assets/images/mix/940/vogue_fixed.jpg" alt="Good Morning" class="grid_image"/>
+                    <div class="work_heading">Vogue</div>
+                </div>
+                <div class="hover">
+                    <h4>Vogue</h4>
+                    <div class="work_links">
+                        <div><a href="assets/images/mix/940/vogue.jpg" data-rel="prettyPhoto" class="misc_white_icons16 icon16_15" title="Big Size"></a></div>
+                        <div><a href="single_project.html" class="misc_white_icons16 icon16_67" title="Project Details"></a></div>
+                    </div>
+                    <div class="clearfix"></div>
+                    <!-- social links -->
+                    <div class="social_links">
+                        <div class="share_text">Share on</div>
+                        <div class="share_icons">
+                            <a href="http://twitthis.com/twit?url=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored twitter tooltip_s" title="Twitter"></a>
+                            <a href="http://www.facebook.com/sharer.php?u=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored facebook tooltip_s" title="Facebook"></a>
+                            <a href="http://linkedin.com/shareArticle?mini=true&amp;url=http://dreamlife.designforlifeden.com&amp;title=DreamLife%20Responsive%20Template" target="_blank" class="social_colored linkedin tooltip_s" title="LinkedIn"></a>
+                            <a href="mailto:?subject=DreamLife%20Responsive%20Template&amp;body=http://dreamlife.designforlifeden.com" class="social_colored mail tooltip_s" title="Mail"></a>
+                        </div>
+                    </div>
+                    <!-- social links end -->
+                </div>
+            </div>
+            <!-- a work end -->
+        </div>
+        <!-- recent works end -->
+    </div>
+    <!-- container 12 end -->

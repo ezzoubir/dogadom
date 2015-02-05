@@ -44,6 +44,8 @@ if(isset($header_article_facebook))
 </script>
 </head>
 <body>
+<div id='fb-root'></div>
+<script src='http://connect.facebook.net/en_US/all.js'></script>
 <?php 
   include 'header.php';
   include 'container.php';

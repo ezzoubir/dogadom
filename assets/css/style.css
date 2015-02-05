@@ -328,7 +328,7 @@ ul.commentlist li ul												{margin: 15px 0 0 30px;}
 .a_work .normal													{position: static;}
 .a_work .hover													{position: absolute;top: 0;width: 100%;height: 100%;display: none;}
 .a_work .hover h4												{position: absolute;width: 100%;top: 50%;margin-top: -55px;text-align: center;}
-.work_links															{position: absolute;top: 100%;left: 50%;width: 84px;height: 34px;margin-left: -42px;margin-top: -17px;}
+.work_links															{position: absolute;top: 100%;left: 50%;width: 84px;height: 34px;margin-left: -21px;margin-top: -17px;}
 .work_links div													{padding: 5px;margin: 0 3px;width: 24px;height: 24px;float: left;-webkit-border-radius: 24px;-moz-border-radius: 24px;border-radius: 24px;}
 .a_work .social_links											{padding: 8px 0 6px 0;height: 26px;position: absolute;bottom: 0;width: 100%;}
 .a_work .social_links .share_text							{float: left;padding-left: 10px;margin-bottom: 0;line-height: 26px;font-size: 16px;}
@@ -338,7 +338,7 @@ ul.commentlist li ul												{margin: 15px 0 0 30px;}
 .four_columns .work_links									{margin-top: -34px;}
 .four_columns .a_item											{margin-bottom: 10px; float: left;}
 .four_columns .work_heading								{font-size: 16px;line-height: 20px;}
-.four_columns .share_icons									{float: none;padding-right: 0;width: 105px;margin-left: auto;margin-right: auto;}
+.four_columns .share_icons									{float: none;padding-right: 0;width: 105px;margin-left: auto;margin-right: auto;text-align: center;}
 
 .box_button														{margin-top: 10px;padding: 3px 11px !important;}
 .box_button .icon												{margin-top: 4px;padding-left: 5px;padding-right: 5px;}
