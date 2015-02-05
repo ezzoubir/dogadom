@@ -109,10 +109,12 @@ function ProposeFichier($UploadingFile)
                                             ?>
                                             </select>
                                         </div>
+                                        <?php if(!isset($_GET['id'])){ ?>
                                         <div class="form-group">
                                             <label>Image</label>
                                             <input name="image" type="file"/>
                                         </div>
+                                        <?php } ?>
 										<div class="form-group">
                                             <label>Tile</label>
                                             <input class="form-control" name="title" value="<?php if(isset($_GET['id'])){ echo $data['title']; } ?>">

@@ -28,7 +28,18 @@
             
             function callback(response) {
                 if (response && response.post_id) {
-                  alert('Post was published.');
+                    alert('Post was published.');
+                    var idad = <?php echo $data['aid']; ?>;
+                    var iduser = <?php echo $_SESSION['id_membre']; ?>;
+                    var data = "id_user="+iduser+"&id_ad="+idad+"&action=sharepaye";
+                    $.ajax({
+                        type: "POST",
+                        url: 'phpajax/sharepaye.php',
+                        data: data,
+                        success : function(){
+                            
+                        }
+                    });
                 } else {
                   alert('Post was not published.');
                 }
@@ -75,7 +86,7 @@
         <!-- recent works -->
         <div class="grid_12">
             <div class="divider_page">
-                <h2>Related Project</h2>
+                <h2>Autres publicites</h2>
                 <div class="heading_button">
                     <div class="prev_button" id="recentworks_prev">Prev</div>
                     <div class="next_button" id="recentworks_next">Next</div>
@@ -92,19 +103,14 @@
                 <div class="hover">
                     <h4>Business Man</h4>
                     <div class="work_links">
-                        <div><a href="assets/images/mix/940/businessman.jpg" data-rel="prettyPhoto" class="misc_white_icons16 icon16_15" title="Big Size"></a></div>
                         <div><a href="single_project.html" class="misc_white_icons16 icon16_67" title="Project Details"></a></div>
                     </div>
                     <div class="clearfix"></div>
                     <!-- social links -->
                     <div class="social_links">
-                        <div class="share_text">Share on</div>
+                        <div class="share_text">Total de partage</div>
                         <div class="share_icons">
-                            <a href="http://twitthis.com/twit?url=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored twitter tooltip_s" title="Twitter"></a>
-                            <a href="http://www.facebook.com/sharer.php?u=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored facebook tooltip_s" title="Facebook"></a>
-                            <a href="http://linkedin.com/shareArticle?mini=true&amp;url=http://dreamlife.designforlifeden.com&amp;title=DreamLife%20Responsive%20Template" target="_blank" class="social_colored linkedin tooltip_s" title="LinkedIn"></a>
-                            <a href="mailto:?subject=DreamLife%20Responsive%20Template&amp;body=http://dreamlife.designforlifeden.com" class="social_colored mail tooltip_s" title="Mail"></a>
-                        </div>
+                            <a href="" target="_blank" class="tooltip_s" title="Total de partage sur Facebook"><?php //echo getnbrTotalShare($data['aid']); ?></a></div>
                     </div>
                     <!-- social links end -->
                 </div>
@@ -119,19 +125,14 @@
                 <div class="hover">
                     <h4>Luxury Life</h4>
                     <div class="work_links">
-                        <div><a href="assets/images/mix/940/luxury.jpg" data-rel="prettyPhoto" class="misc_white_icons16 icon16_15" title="Big Size"></a></div>
                         <div><a href="single_project.html" class="misc_white_icons16 icon16_67" title="Project Details"></a></div>
                     </div>
                     <div class="clearfix"></div>
                     <!-- social links -->
                     <div class="social_links">
-                        <div class="share_text">Share on</div>
+                        <div class="share_text">Total de partage</div>
                         <div class="share_icons">
-                            <a href="http://twitthis.com/twit?url=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored twitter tooltip_s" title="Twitter"></a>
-                            <a href="http://www.facebook.com/sharer.php?u=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored facebook tooltip_s" title="Facebook"></a>
-                            <a href="http://linkedin.com/shareArticle?mini=true&amp;url=http://dreamlife.designforlifeden.com&amp;title=DreamLife%20Responsive%20Template" target="_blank" class="social_colored linkedin tooltip_s" title="LinkedIn"></a>
-                            <a href="mailto:?subject=DreamLife%20Responsive%20Template&amp;body=http://dreamlife.designforlifeden.com" class="social_colored mail tooltip_s" title="Mail"></a>
-                        </div>
+                            <a href="" target="_blank" class="tooltip_s" title="Total de partage sur Facebook"><?php //echo getnbrTotalShare($data['aid']); ?></a></div>
                     </div>
                     <!-- social links end -->
                 </div>
@@ -146,19 +147,14 @@
                 <div class="hover">
                     <h4>Good Morning</h4>
                     <div class="work_links">
-                        <div><a href="assets/images/mix/940/morning.jpg" data-rel="prettyPhoto" class="misc_white_icons16 icon16_15" title="Big Size"></a></div>
                         <div><a href="single_project.html" class="misc_white_icons16 icon16_67" title="Project Details"></a></div>
                     </div>
                     <div class="clearfix"></div>
                     <!-- social links -->
                     <div class="social_links">
-                        <div class="share_text">Share on</div>
+                        <div class="share_text">Total de partage</div>
                         <div class="share_icons">
-                            <a href="http://twitthis.com/twit?url=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored twitter tooltip_s" title="Twitter"></a>
-                            <a href="http://www.facebook.com/sharer.php?u=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored facebook tooltip_s" title="Facebook"></a>
-                            <a href="http://linkedin.com/shareArticle?mini=true&amp;url=http://dreamlife.designforlifeden.com&amp;title=DreamLife%20Responsive%20Template" target="_blank" class="social_colored linkedin tooltip_s" title="LinkedIn"></a>
-                            <a href="mailto:?subject=DreamLife%20Responsive%20Template&amp;body=http://dreamlife.designforlifeden.com" class="social_colored mail tooltip_s" title="Mail"></a>
-                        </div>
+                            <a href="" target="_blank" class="tooltip_s" title="Total de partage sur Facebook"><?php //echo getnbrTotalShare($data['aid']); ?></a></div>
                     </div>
                     <!-- social links end -->
                 </div>
@@ -173,22 +169,17 @@
                 <div class="hover">
                     <h4>Shopping</h4>
                     <div class="work_links">
-                        <div><a href="assets/images/mix/940/shopping.jpg" data-rel="prettyPhoto" class="misc_white_icons16 icon16_15" title="Big Size"></a></div>
-                        <div><a href="single_project.html" class="misc_white_icons16 icon16_67" title="Project Details"></a></div>
+                         <div><a href="single_project.html" class="misc_white_icons16 icon16_67" title="Project Details"></a></div>
                     </div>
                     <div class="clearfix"></div>
                     <!-- social links -->
                     <div class="social_links">
-                        <div class="share_text">Share on</div>
+                        <div class="share_text">Total de partage</div>
                         <div class="share_icons">
-                            <a href="http://twitthis.com/twit?url=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored twitter tooltip_s" title="Twitter"></a>
-                            <a href="http://www.facebook.com/sharer.php?u=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored facebook tooltip_s" title="Facebook"></a>
-                            <a href="http://linkedin.com/shareArticle?mini=true&amp;url=http://dreamlife.designforlifeden.com&amp;title=DreamLife%20Responsive%20Template" target="_blank" class="social_colored linkedin tooltip_s" title="LinkedIn"></a>
-                            <a href="mailto:?subject=DreamLife%20Responsive%20Template&amp;body=http://dreamlife.designforlifeden.com" class="social_colored mail tooltip_s" title="Mail"></a>
+                            <a href="" target="_blank" class="tooltip_s" title="Total de partage sur Facebook"><?php //echo getnbrTotalShare($data['aid']); ?></a></div>
                         </div>
                     </div>
                     <!-- social links end -->
-                </div>
             </div>
             <!-- a work end -->
             <!-- a work -->
@@ -200,51 +191,18 @@
                 <div class="hover">
                     <h4>Urban Style</h4>
                     <div class="work_links">
-                        <div><a href="assets/images/mix/940/urbanstyle.jpg" data-rel="prettyPhoto" class="misc_white_icons16 icon16_15" title="Big Size"></a></div>
                         <div><a href="single_project.html" class="misc_white_icons16 icon16_67" title="Project Details"></a></div>
                     </div>
                     <div class="clearfix"></div>
                     <!-- social links -->
                     <div class="social_links">
-                        <div class="share_text">Share on</div>
+                        <div class="share_text">Total de partage</div>
                         <div class="share_icons">
-                            <a href="http://twitthis.com/twit?url=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored twitter tooltip_s" title="Twitter"></a>
-                            <a href="http://www.facebook.com/sharer.php?u=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored facebook tooltip_s" title="Facebook"></a>
-                            <a href="http://linkedin.com/shareArticle?mini=true&amp;url=http://dreamlife.designforlifeden.com&amp;title=DreamLife%20Responsive%20Template" target="_blank" class="social_colored linkedin tooltip_s" title="LinkedIn"></a>
-                            <a href="mailto:?subject=DreamLife%20Responsive%20Template&amp;body=http://dreamlife.designforlifeden.com" class="social_colored mail tooltip_s" title="Mail"></a>
+                            <a href="" target="_blank" class="tooltip_s" title="Total de partage sur Facebook"><?php //echo getnbrTotalShare($data['aid']); ?></a></div>
                         </div>
                     </div>
                     <!-- social links end -->
                 </div>
-            </div>
-            <!-- a work end -->
-            <!-- a work -->
-            <div class="a_work">    
-                <div class="normal">
-                    <img src="assets/images/mix/940/vogue_fixed.jpg" alt="Good Morning" class="grid_image"/>
-                    <div class="work_heading">Vogue</div>
-                </div>
-                <div class="hover">
-                    <h4>Vogue</h4>
-                    <div class="work_links">
-                        <div><a href="assets/images/mix/940/vogue.jpg" data-rel="prettyPhoto" class="misc_white_icons16 icon16_15" title="Big Size"></a></div>
-                        <div><a href="single_project.html" class="misc_white_icons16 icon16_67" title="Project Details"></a></div>
-                    </div>
-                    <div class="clearfix"></div>
-                    <!-- social links -->
-                    <div class="social_links">
-                        <div class="share_text">Share on</div>
-                        <div class="share_icons">
-                            <a href="http://twitthis.com/twit?url=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored twitter tooltip_s" title="Twitter"></a>
-                            <a href="http://www.facebook.com/sharer.php?u=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored facebook tooltip_s" title="Facebook"></a>
-                            <a href="http://linkedin.com/shareArticle?mini=true&amp;url=http://dreamlife.designforlifeden.com&amp;title=DreamLife%20Responsive%20Template" target="_blank" class="social_colored linkedin tooltip_s" title="LinkedIn"></a>
-                            <a href="mailto:?subject=DreamLife%20Responsive%20Template&amp;body=http://dreamlife.designforlifeden.com" class="social_colored mail tooltip_s" title="Mail"></a>
-                        </div>
-                    </div>
-                    <!-- social links end -->
-                </div>
-            </div>
-            <!-- a work end -->
         </div>
         <!-- recent works end -->
     </div>

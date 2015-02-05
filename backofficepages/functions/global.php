@@ -105,7 +105,7 @@ function deltree($dossier)
 
 function GetNewId()
 		{
-			$NbrChrs=13;
+			$NbrChrs=8;
 			$list = "ABCDEFGHIJKLMNPQRSTUVWXYZ123456789";
 			mt_srand((double)microtime()*1000000);
 			$pass="";

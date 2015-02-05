@@ -12,7 +12,7 @@
         <!-- portfolio items -->
         <div class="portfolio_items four_columns">
             <?php
-                $sql='SELECT * FROM ads WHERE active = 1 and id NOT IN (SELECT ad_id from shares where user_id='.$_SESSION['id_membre'].') order by id';
+                $sql='SELECT * FROM ads WHERE active = 1 and aid NOT IN (SELECT ad_id from shares where user_id='.$_SESSION['id_membre'].') order by id';
                 $req=mysql_query($sql);
                 while($data=mysql_fetch_array($req)) {
             ?>

@@ -101,7 +101,15 @@ if(FCKEDITOR)
                             <a href="index.php?action=home"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
 						<li>
-                            <a href="index.php?action=annonceurs"><i class="fa fa-users fa-fw"></i> Annonceurs</a>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> Annonceurs<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="index.php?action=annonceurs">Liste des annonceurs</a>
+                                </li>
+                                <li>
+                                    <a href="index.php?action=edit_annonceur">Ajouter un annonceur</a>
+                                </li>
+                            </ul>
                         </li>
 						<li>
                             <a href="index.php?action=users"><i class="fa fa-users fa-fw"></i> Users</a>
