@@ -30,7 +30,10 @@
 		if($success)
 		{
 			$sql='insert into shares (ad_id,user_id,created) values ("'.$idad.'","'.$iduser.'","'.date('Y-m-d H:i:s').'")';
-			$req=mysql_query($sql);
+			mysql_query($sql);
+
+			$sql ='update paiements set total = total + 0.25 , modified="'.date('Y-m-d H:i:s').'" where user_id = "'.$_SESSION['userur'].'"';
+			mysql_query($sql);
 			
 			$aResponse['message'] = 'Your share has been successfuly recorded. Thanks for your share :)';
 					

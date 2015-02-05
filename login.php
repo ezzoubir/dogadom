@@ -66,13 +66,19 @@ if(isset($_REQUEST["provider"]))
 		      	 $sql='insert into users (uid_facebook,parent_id,profile_facebook_url,first_name,last_name,sex,pic_big,name,birthday,city,country,email,phone,password,type,created,active)  values("'.$user_data->identifier.'","'.$referrer.'","'.$user_data->profileURL.'","'.$user_data->firstName.'","'.$user_data->lastName.'","'.$user_data->gender.'","'.$user_data->photoURL.'","'.$user_data->displayName.'","'.$birthdate.'","'.$user_data->city.'","'.$user_data->country.'","'.$user_data->email.'","'.$user_data->phone.'","'.$password.'","basic",'.date('Y-m-d').'","1")';
               	 mysql_query($sql);
 
-              	 $sql='update into paiements set total = total + 1 where facebook_id = '.$referrer.'';
+              	 $sql='update paiements set total = total + 1, modified="'.date('Y-m-d H:i:s').'" where facebook_id = '.$referrer.'';
               	 mysql_query($sql);
 
+              	 $sql ='insert into paiements (user_id,created) values ("'.$user_data->identifier.'","'.date('Y-m-d H:i:s').'")';
+				 mysql_query($sql);
+
 		  	  } else {
-              $sql='insert into users (uid_facebook,profile_facebook_url,first_name,last_name,sex,pic_big,name,birthday,city,country,email,phone,password,type,created,active)  values("'.$user_data->identifier.'","'.$user_data->profileURL.'","'.$user_data->firstName.'","'.$user_data->lastName.'","'.$user_data->gender.'","'.$user_data->photoURL.'","'.$user_data->displayName.'","'.$birthdate.'","'.$user_data->city.'","'.$user_data->country.'","'.$user_data->email.'","'.$user_data->phone.'","'.$password.'","basic",'.date('Y-m-d').'","1")';
-              mysql_query($sql);
-          		}
+	              $sql='insert into users (uid_facebook,profile_facebook_url,first_name,last_name,sex,pic_big,name,birthday,city,country,email,phone,password,type,created,active)  values("'.$user_data->identifier.'","'.$user_data->profileURL.'","'.$user_data->firstName.'","'.$user_data->lastName.'","'.$user_data->gender.'","'.$user_data->photoURL.'","'.$user_data->displayName.'","'.$birthdate.'","'.$user_data->city.'","'.$user_data->country.'","'.$user_data->email.'","'.$user_data->phone.'","'.$password.'","basic",'.date('Y-m-d').'","1")';
+	              mysql_query($sql);
+
+              	$sql ='insert into paiements (user_id,created) values ("'.$user_data->identifier.'","'.date('Y-m-d H:i:s').'")';
+				 mysql_query($sql);
+          	}
 			
               // envoi email de confirmation
                require 'class/phpmailer.class.inc.php';
