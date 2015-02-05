@@ -336,7 +336,7 @@ function truncate($string, $max_length = 80, $replacement = '', $trunc_at_space 
   if(isset($_GET['logout'])) {
     unset($_SESSION['id_membre']);
     unset($_SESSION['displayname']);
-    unset($_SESSION['usertp']);
+    unset($_SESSION['userur']);
     header('LOCATION:'.BASE_URL);
  }
 

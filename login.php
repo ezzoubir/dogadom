@@ -34,6 +34,10 @@ if(isset($_REQUEST["provider"]))
       $adapter = $hybridauth->getAdapter( $provider );  
       //On récupère les informations du profile  
       $user_data = $adapter->getUserProfile();  
+
+      if(isset($_GET["ur"])) {
+      	$referrer = @ trim( strip_tags( $_GET["ur"] ) );
+  	  }
 	  
       /* les variables sont stockées dans $user_data. */
 				
@@ -47,7 +51,7 @@ if(isset($_REQUEST["provider"]))
 			 //Création des variables de session 
 				$_SESSION['id_membre']=$ro['id'];			 
 				$_SESSION['displayname']=$ro['name'];
-				$_SESSION['usertp']=$ro['type'];
+				$_SESSION['userur']=$ro['uid_facebook'];
 
 				 header('LOCATION:annonces');
 		  }  
@@ -58,8 +62,17 @@ if(isset($_REQUEST["provider"]))
 			 $birthdate = $user_data->birthYear.'-'.$user_data->birthMonth.'-'.$user_data->birthDay;
 			 $password = GetNewPass();
 
+			 if(isset($_GET["ur"])) {
+		      	 $sql='insert into users (uid_facebook,parent_id,profile_facebook_url,first_name,last_name,sex,pic_big,name,birthday,city,country,email,phone,password,type,created,active)  values("'.$user_data->identifier.'","'.$referrer.'","'.$user_data->profileURL.'","'.$user_data->firstName.'","'.$user_data->lastName.'","'.$user_data->gender.'","'.$user_data->photoURL.'","'.$user_data->displayName.'","'.$birthdate.'","'.$user_data->city.'","'.$user_data->country.'","'.$user_data->email.'","'.$user_data->phone.'","'.$password.'","basic",'.date('Y-m-d').'","1")';
+              	 mysql_query($sql);
+
+              	 $sql='update into paiements set total = total + 1 where facebook_id = '.$referrer.'';
+              	 mysql_query($sql);
+
+		  	  } else {
               $sql='insert into users (uid_facebook,profile_facebook_url,first_name,last_name,sex,pic_big,name,birthday,city,country,email,phone,password,type,created,active)  values("'.$user_data->identifier.'","'.$user_data->profileURL.'","'.$user_data->firstName.'","'.$user_data->lastName.'","'.$user_data->gender.'","'.$user_data->photoURL.'","'.$user_data->displayName.'","'.$birthdate.'","'.$user_data->city.'","'.$user_data->country.'","'.$user_data->email.'","'.$user_data->phone.'","'.$password.'","basic",'.date('Y-m-d').'","1")';
               mysql_query($sql);
+          		}
 			
               // envoi email de confirmation
                require 'class/phpmailer.class.inc.php';
