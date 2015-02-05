@@ -71,148 +71,35 @@
             </div>
         </div>
         <div id="recentWorks">
+            <?php
+                $sql='SELECT * FROM ads WHERE active = 1 and finished=0 and aid NOT IN (SELECT ad_id from shares where user_id='.$_SESSION['id_membre'].') order by id desc limit 6';
+                $req=mysql_query($sql);
+                while($data=mysql_fetch_array($req)){
+            ?>
             <!-- a work -->
             <div class="a_work">    
                 <div class="normal">
-                    <img src="assets/images/mix/940/businessman_fixed.jpg" alt="Business Man" class="grid_image"/>
-                    <div class="work_heading">Business Man</div>
+                    <img src="<?php echo RepPhoto.'pic_ads/'.$data['image']; ?>" alt="<?php echo $data['title']; ?>" class="grid_image"/>
+                    <div class="work_heading"><?php echo $data['title']; ?></div>
                 </div>
                 <div class="hover">
-                    <h4>Business Man</h4>
+                    <h4><?php echo $data['title']; ?></h4>
                     <div class="work_links">
-                        <div><a href="single_project.html" class="misc_white_icons16 icon16_67" title="Project Details"></a></div>
+                        <div><a href="<?php echo BASE_URL.'ad-'.$data['aid']; ?>" class="misc_white_icons16 icon16_67" title="<?php echo $data['title']; ?>"></a></div>
                     </div>
                     <div class="clearfix"></div>
                     <!-- social links -->
                     <div class="social_links">
                         <div class="share_text">Total de partage</div>
                         <div class="share_icons">
-                            <a href="" target="_blank" class="tooltip_s" title="Total de partage sur Facebook"><?php //echo getnbrTotalShare($data['aid']); ?></a></div>
+                            <a href="" target="_blank" class="tooltip_s" title="Total de partage sur Facebook"><?php echo getnbrTotalShare($data['aid']); ?></a></div>
                     </div>
                     <!-- social links end -->
                 </div>
             </div>
             <!-- a work end -->
-            <!-- a work -->
-            <div class="a_work">    
-                <div class="normal">
-                    <img src="assets/images/mix/940/luxury_fixed.jpg" alt="Luxury Life" class="grid_image"/>
-                    <div class="work_heading">Luxury Life</div>
-                </div>
-                <div class="hover">
-                    <h4>Luxury Life</h4>
-                    <div class="work_links">
-                        <div><a href="single_project.html" class="misc_white_icons16 icon16_67" title="Project Details"></a></div>
-                    </div>
-                    <div class="clearfix"></div>
-                    <!-- social links -->
-                    <div class="social_links">
-                        <div class="share_text">Total de partage</div>
-                        <div class="share_icons">
-                            <a href="" target="_blank" class="tooltip_s" title="Total de partage sur Facebook"><?php //echo getnbrTotalShare($data['aid']); ?></a></div>
-                    </div>
-                    <!-- social links end -->
-                </div>
-            </div>
-            <!-- a work end -->
-            <!-- a work -->
-            <div class="a_work">    
-                <div class="normal">
-                    <img src="assets/images/mix/940/morning_fixed.jpg" alt="Good Morning" class="grid_image"/>
-                    <div class="work_heading">Good Morning</div>
-                </div>
-                <div class="hover">
-                    <h4>Good Morning</h4>
-                    <div class="work_links">
-                        <div><a href="single_project.html" class="misc_white_icons16 icon16_67" title="Project Details"></a></div>
-                    </div>
-                    <div class="clearfix"></div>
-                    <!-- social links -->
-                    <div class="social_links">
-                        <div class="share_text">Total de partage</div>
-                        <div class="share_icons">
-                            <a href="" target="_blank" class="tooltip_s" title="Total de partage sur Facebook"><?php //echo getnbrTotalShare($data['aid']); ?></a></div>
-                    </div>
-                    <!-- social links end -->
-                </div>
-            </div>
-            <!-- a work end -->
-            <!-- a work -->
-            <div class="a_work">    
-                <div class="normal">
-                    <img src="assets/images/mix/940/urbanstyle_fixed.jpg" alt="Luxury Life" class="grid_image"/>
-                    <div class="work_heading">Urban Style</div>
-                </div>
-                <div class="hover">
-                    <h4>Urban Style</h4>
-                    <div class="work_links">
-                        <div><a href="single_project.html" class="misc_white_icons16 icon16_67" title="Project Details"></a></div>
-                    </div>
-                    <div class="clearfix"></div>
-                    <!-- social links -->
-                    <div class="social_links">
-                        <div class="share_text">Total de partage</div>
-                        <div class="share_icons">
-                            <a href="" target="_blank" class="tooltip_s" title="Total de partage sur Facebook"><?php //echo getnbrTotalShare($data['aid']); ?></a></div>
-                        </div>
-                    </div>
-                    <!-- social links end -->
-                </div>
-            <!-- a work end -->
-            <!-- a work -->
-            <div class="a_work">    
-                <div class="normal">
-                    <img src="assets/images/mix/940/urbanstyle_fixed.jpg" alt="Luxury Life" class="grid_image"/>
-                    <div class="work_heading">Urban Style</div>
-                </div>
-                <div class="hover">
-                    <h4>Urban Style</h4>
-                    <div class="work_links">
-                        <div><a href="assets/images/mix/940/urbanstyle.jpg" data-rel="prettyPhoto" class="misc_white_icons16 icon16_15" title="Big Size"></a></div>
-                        <div><a href="single_project.html" class="misc_white_icons16 icon16_67" title="Project Details"></a></div>
-                    </div>
-                    <div class="clearfix"></div>
-                    <!-- social links -->
-                    <div class="social_links">
-                        <div class="share_text">Share on</div>
-                        <div class="share_icons">
-                            <a href="http://twitthis.com/twit?url=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored twitter tooltip_s" title="Twitter"></a>
-                            <a href="http://www.facebook.com/sharer.php?u=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored facebook tooltip_s" title="Facebook"></a>
-                            <a href="http://linkedin.com/shareArticle?mini=true&amp;url=http://dreamlife.designforlifeden.com&amp;title=DreamLife%20Responsive%20Template" target="_blank" class="social_colored linkedin tooltip_s" title="LinkedIn"></a>
-                            <a href="mailto:?subject=DreamLife%20Responsive%20Template&amp;body=http://dreamlife.designforlifeden.com" class="social_colored mail tooltip_s" title="Mail"></a>
-                        </div>
-                    </div>
-                    <!-- social links end -->
-                </div>
-            </div>
-            <!-- a work end -->
-            <!-- a work -->
-            <div class="a_work">    
-                <div class="normal">
-                    <img src="assets/images/mix/940/vogue_fixed.jpg" alt="Good Morning" class="grid_image"/>
-                    <div class="work_heading">Vogue</div>
-                </div>
-                <div class="hover">
-                    <h4>Vogue</h4>
-                    <div class="work_links">
-                        <div><a href="assets/images/mix/940/vogue.jpg" data-rel="prettyPhoto" class="misc_white_icons16 icon16_15" title="Big Size"></a></div>
-                        <div><a href="single_project.html" class="misc_white_icons16 icon16_67" title="Project Details"></a></div>
-                    </div>
-                    <div class="clearfix"></div>
-                    <!-- social links -->
-                    <div class="social_links">
-                        <div class="share_text">Share on</div>
-                        <div class="share_icons">
-                            <a href="http://twitthis.com/twit?url=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored twitter tooltip_s" title="Twitter"></a>
-                            <a href="http://www.facebook.com/sharer.php?u=http://dreamlife.designforlifeden.com" target="_blank" class="social_colored facebook tooltip_s" title="Facebook"></a>
-                            <a href="http://linkedin.com/shareArticle?mini=true&amp;url=http://dreamlife.designforlifeden.com&amp;title=DreamLife%20Responsive%20Template" target="_blank" class="social_colored linkedin tooltip_s" title="LinkedIn"></a>
-                            <a href="mailto:?subject=DreamLife%20Responsive%20Template&amp;body=http://dreamlife.designforlifeden.com" class="social_colored mail tooltip_s" title="Mail"></a>
-                        </div>
-                    </div>
-                    <!-- social links end -->
-                </div>
-            </div>
-            <!-- a work end -->
+            <?php } ?>
+            
         </div>
         <!-- recent works end -->
         <!-- our clients -->
@@ -225,6 +112,11 @@
                 </div>
             </div>
             <div class="our_clients">
+                <?php
+                    $sql='select * from users where active=1 and type="premium" order by id desc';
+                    $req=mysql_query($sql);
+                    while($data=mysql_fetch_array($req)){
+                ?>
                 <a href="http://themeforest.net/?ref=DesignForLife" target="_blank" class="a_client themeforest"></a>
                 <a href="http://activeden.net/?ref=DesignForLife" target="_blank" class="a_client activeden"></a>
                 <a href="http://audiojungle.net/?ref=DesignForLife" target="_blank" class="a_client audiojungle"></a>
@@ -235,6 +127,7 @@
                 <a href="http://videohive.net/?ref=DesignForLife" target="_blank" class="a_client videohive"></a>
                 <a href="http://activeden.net/?ref=DesignForLife" target="_blank" class="a_client activeden"></a>
                 <a href="http://themeforest.net/?ref=DesignForLife" target="_blank" class="a_client themeforest"></a>
+                <?php } ?>
             </div>
         </div>
         <!-- our clients end -->
