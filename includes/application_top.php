@@ -225,11 +225,11 @@ function truncate($string, $max_length = 80, $replacement = '', $trunc_at_space 
 
   function getnbrTotalShare($aid)
   {
-      $sql='select * from shares where ad_id = "'.$aid.'"';
+      $sql='select * from paiements where user_id = "'.$_SESSION['userur'].'"';
       $req=mysql_query($sql);
-      $num=mysql_num_rows($req);
+      $data=mysql_fetch_array($req);
       
-      return $num;
+      return $data['total'];
   }
 
   function getCompanyName($id){
@@ -277,24 +277,9 @@ function truncate($string, $max_length = 80, $replacement = '', $trunc_at_space 
       return $NewDate;
   }
   
-  function getBrandsTotal(){
-	$sql='select * from marchands order by marchand';
-	$req=mysql_query($sql);
-	$num=mysql_num_rows($req);
-	
-	return $num;
-  }
+ 
   
-  function getCoupnByUserTotal($idMembre){
-		$sql='SELECT * from coupons cp 
-				  LEFT JOIN users_coupons usp 
-				  ON cp.id=usp.id_coupon 
-				  WHERE usp.id_membre="'.$idMembre.'"';
-				  
-			$req=mysql_query($sql);
-			$total = mysql_num_rows($req);
-	return $total;
-  }
+  
   /*  /FONCTIONS GLOBALES */
   
   /* MODULES */
