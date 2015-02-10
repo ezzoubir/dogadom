@@ -6,7 +6,7 @@
                 <p>Chez <?php echo NAME_SITE; ?>, vous êtes payés pour partager les publicites de nos annonceurs.</p>
             </div>
             <div class="grid_3 align_right">
-                <a href="/login.php?provider=facebook<?php if(isset($_GET['ur'])) { echo 'ur='.$_GET['ur']; } ?>" class="sc_button large box_button"><span class="social_white_icons16 icon16_22 icon"></span><span class="icon_divider"></span><span class="button_text">Se connecter</span></a>
+                <a href="/login.php?provider=facebook<?php if(isset($_GET['ur'])) { echo '&ur='.$_GET['ur']; } ?>" class="sc_button large box_button"><span class="social_white_icons16 icon16_22 icon"></span><span class="icon_divider"></span><span class="button_text">Se connecter</span></a>
             </div>
         </div>
     </div>
