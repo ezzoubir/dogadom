@@ -41,7 +41,7 @@
                         }
                     });
                 } else {
-                  alert('Post was not published.');
+                  alert('Merci de partager cette annonce!');
                 }
               }
 

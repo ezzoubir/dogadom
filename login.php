@@ -89,11 +89,9 @@ DEFINE('MAIL_SIGNATURE','DROITS POUR TOUS');
                  */
                  
                   $message='<div>';
-                  $message.='<br /><br />Merci de vous être enregistré sur '.NAME_SITE.'. Vous pouvez désormais<br/> vous identifier en cliquant sur ce lien ci-après ou en le copiant dans votre<br/> navigateur :<br /><br /><a href="'.BASE_URL.'">'.BASE_URL.'</a>';
-				  $message.='Identifiant : '.$user_data->email;
-				  $message.='Mot de passe : '.$password;
-				  $message.='<br/>Ou<br/>par votre compte : Facebook';
-				  $message.='Cordialement,<br/>L\'équipe share.ma';
+                  $message.='<br /><br />Merci de vous être enregistré sur '.NAME_SITE.'. Vous pouvez désormais<br/> vous identifier ';
+				  $message.='par votre compte : Facebook';
+				  $message.='Cordialement,<br/>L\'équipe '.NAME_SITE;
                   $message.='</div>';
                   $mail = new PHPmailer();
                   $mail->IsHTML(true);
