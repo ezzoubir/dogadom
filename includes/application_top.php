@@ -217,7 +217,7 @@ function truncate($string, $max_length = 80, $replacement = '', $trunc_at_space 
       $req=mysql_query($sql);
       $data=@mysql_fetch_array($req);
       
-      if($data['rib']==0 || $data['cin']!='' || $data['banque']!='' || $data['email']!='' || $data['address']!='') {
+      if($data['rib']==0) {
           echo '<img src="assets/images/icons/alert.gif" />';
       } 
   }
@@ -277,27 +277,6 @@ function truncate($string, $max_length = 80, $replacement = '', $trunc_at_space 
       return $NewDate;
   }
   
-  function do_update($table,$fields,$id){
-	$i = 0;
-	$len = count($fields);
-	$sql='update '.$table.' set ';
-	foreach($fields as $key=>$val) {
-		if($i == $len - 1) {
-			$sql .=' '.$key.' = '.$val.'';
-		} else {
-			$sql .=' '.$key.' = '.$val.' ,';
-		}
-	$i++;
-	}
-	$sql .=' where id = "'.$id.'"';
-	
-	if(mysql_query($sql)) {
-		return true;
-	} else {
-		return false;
-	}
-}
-  
  
   
   
@@ -305,16 +284,10 @@ function truncate($string, $max_length = 80, $replacement = '', $trunc_at_space 
   
   /* MODULES */
   /**********************************************************/
-
-  if(isset($_POST['updateuser']))
-  {
-	if(do_update('users',$_POST,$_SESSION['id_membre'])) {
-		return true;
-	} else {
-		return false;
-	}
  
-  }
+  
+ 
+  
   if(isset($_POST['CONTACT_FORM_ENVOYER']))
   {
   

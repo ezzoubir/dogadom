@@ -41,6 +41,8 @@ if(isset($header_article_facebook))
 <!--[if lte IE 8]>
   <link rel="stylesheet" type="text/css" href="assets/css/ie8.css" />
 <![endif]-->
+<link rel="stylesheet" href="assets/css/jquery_popup.css" />
+
 </script>
 </head>
 <body>
@@ -54,5 +56,6 @@ if(isset($header_article_facebook))
 <script src="assets/js/jquery-1.9.0.min.js" type="text/javascript"></script>
 <script src="assets/js/jquery.components.js" type="text/javascript"></script>
 <script src="assets/js/custom.js" type="text/javascript"></script>	
+<script src="assets/js/jquery_popup.js"></script>
 </body>
 </html>

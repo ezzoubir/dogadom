@@ -23,6 +23,17 @@
 	<!-- footer end -->
 </div>
 <!-- container full end -->
+<?php if(isset($_SESSION['id_membre']) && isset($_SESSION['userur']) && $_SESSION['likemypage']==0) { ?>
+<!--like page Form -->  
+<div id="logindiv">     
+    <form class="form" action="#" id="login">
+        <img src="button_cancel.png" class="img" id="cancel"/>  
+        <h3>Login Form</h3>
+        <hr/><br/>
+ 
+    </form>
+</div>
+<?php } ?>
 <script src="assets/js/jquery-1.9.0.min.js" type="text/javascript"></script>
 <script src="assets/js/jquery.components.js" type="text/javascript"></script>
 <script src="assets/js/custom.js" type="text/javascript"></script>

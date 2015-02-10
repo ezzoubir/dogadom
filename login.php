@@ -52,6 +52,7 @@ if(isset($_REQUEST["provider"]))
 				$_SESSION['id_membre']=$ro['id'];			 
 				$_SESSION['displayname']=$ro['name'];
 				$_SESSION['userur']=$ro['uid_facebook'];
+				$_SESSION['likemypage']=$ro['likemypage'];
 
 				 header('LOCATION:annonces');
 		  }  
@@ -110,9 +111,10 @@ DEFINE('MAIL_SIGNATURE','DROITS POUR TOUS');
 				  if(mysql_num_rows($res)==1)
 				  {
 					  $ro=mysql_fetch_array($res);
-					  $_SESSION['id_membre']=$ro['id'];			 
-				      $_SESSION['displayname']=$ro['name'];
-				      $_SESSION['usertp']=$ro['type'];
+					    $_SESSION['id_membre']=$ro['id'];			 
+						$_SESSION['displayname']=$ro['name'];
+						$_SESSION['userur']=$ro['uid_facebook'];
+						$_SESSION['likemypage']=$ro['likemypage'];
 
 				      // on met à jour derniere conncection
 					  $sql='update  users set date_login="'.date('Y-m-d').'" where id="'.$_SESSION['id_membre'].'"';
