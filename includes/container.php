@@ -12,6 +12,9 @@
 		case '4':
 			include 'contact.php';
 			break;
+		case '6':
+			include 'basic/profil.php';
+			break;
 		default:
 			include 'hp_interface.php';
 			break;
