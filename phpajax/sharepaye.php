@@ -32,7 +32,22 @@
 			$sql='insert into shares (ad_id,user_id,created) values ("'.$idad.'","'.$iduser.'","'.date('Y-m-d H:i:s').'")';
 			mysql_query($sql);
 
-			$sql ='update paiements set total = total + 0.25 , modified="'.date('Y-m-d H:i:s').'" where user_id = "'.$_SESSION['userur'].'"';
+			$sqad = 'select * from ads where aid = "'.$idad.'"';
+			$reqad = mysql_query($sqad);
+			$datad = mysql_fetch_array($reqad);
+
+			if($datad['nbr_share']>0) {
+
+				$sql='update ads set nbr_share = nbr_share - 1 where aid = "'.$idad.'"';
+				mysql_query($sql);
+
+			} else {
+
+				$sql='update ads set finished = 1, active = 0 where aid = "'.$idad.'"';
+				mysql_query($sql);
+			}
+
+			$sql ='update paiements set total = total + 0.25 , modified="'.date('Y-m-d H:i:s').'" where user_id = "'.$iduser.'"';
 			mysql_query($sql);
 			
 			$aResponse['message'] = 'Your share has been successfuly recorded. Thanks for your share :)';

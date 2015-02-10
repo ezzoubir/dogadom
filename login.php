@@ -42,7 +42,7 @@ if(isset($_REQUEST["provider"]))
       /* les variables sont stockées dans $user_data. */
 				
 	
-	    $sql='select * from users where email="'.$user_data->email.'"';
+	    $sql='select * from users where email="'.$user_data->email.'" and uid_facebook="'.$user_data->identifier.'"';
         $res=mysql_query($sql);
 		$ro=mysql_fetch_array($res);
 		 // On interroge notre base de données pour voir si l'adresse email($user_data->email) est déjà attachée à un compte*/  
@@ -54,7 +54,7 @@ if(isset($_REQUEST["provider"]))
 				$_SESSION['userur']=$ro['uid_facebook'];
 				$_SESSION['likemypage']=$ro['likemypage'];
 
-				 header('LOCATION:annonces');
+				header('LOCATION:annonces');
 		  }  
 		  else  
 		  {  

@@ -1,6 +1,6 @@
 <!-- header text -->
     <?php 
-        $sql='select * from ads where aid="'.$_GET['idad'].'"';
+        $sql='select * from ads where aid="'.$_GET['idad'].'" and active = 1  and finished = 0 and nbr_share > 0 ';
         $req=mysql_query($sql);
         $data=mysql_fetch_array($req);
     ?>
@@ -30,14 +30,14 @@
                 if (response && response.post_id) {
                     alert('Post was published.');
                     var idad = <?php echo $data['aid']; ?>;
-                    var iduser = <?php echo $_SESSION['id_membre']; ?>;
+                    var iduser = <?php echo $_SESSION['userur']; ?>;
                     var data = "id_user="+iduser+"&id_ad="+idad+"&action=sharepaye";
                     $.ajax({
                         type: "POST",
                         url: 'phpajax/sharepaye.php',
                         data: data,
                         success : function(){
-                            
+                            window.location.href = "<?php echo BASE_URL; ?>annonces";
                         }
                     });
                 } else {
