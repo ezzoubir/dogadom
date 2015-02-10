@@ -30,7 +30,8 @@
         <img src="button_cancel.png" class="img" id="cancel"/>  
         <h3>Login Form</h3>
         <hr/><br/>
-        <p>Merci d’aimer notre page! et Faites gagner de l'argent en partageant des publicités de nos annonceurs et en invitant des amis par votre url.</p>
+        <p>Merci d’aimer notre page! et Faites gagner de l'argent en partageant des publicités de nos 
+        annonceurs et en invitant des amis par votre url <?php echo NAME_SITE; ?>.</p>
     </form>
 </div>
 <?php } ?>

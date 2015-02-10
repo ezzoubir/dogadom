@@ -89,7 +89,7 @@ DEFINE('MAIL_SIGNATURE','DROITS POUR TOUS');
                  */
                  
                   $message='<div>';
-                  $message.='<br /><br />Merci de vous être enregistré sur share.ma. Vous pouvez désormais<br/> vous identifier en cliquant sur ce lien ci-après ou en le copiant dans votre<br/> navigateur :<br /><br /><a href="'.BASE_URL.'">'.BASE_URL.'</a>';
+                  $message.='<br /><br />Merci de vous être enregistré sur '.NAME_SITE.'. Vous pouvez désormais<br/> vous identifier en cliquant sur ce lien ci-après ou en le copiant dans votre<br/> navigateur :<br /><br /><a href="'.BASE_URL.'">'.BASE_URL.'</a>';
 				  $message.='Identifiant : '.$user_data->email;
 				  $message.='Mot de passe : '.$password;
 				  $message.='<br/>Ou<br/>par votre compte : Facebook';
