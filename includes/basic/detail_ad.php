@@ -27,7 +27,8 @@
             };
             
             function callback(response) {
-                if (response && response.post_id) {
+                //if (response && response.post_id) {
+                if (response && !response.error_code) {
                     alert('Post was published.');
                     var idad = <?php echo $data['aid']; ?>;
                     var iduser = <?php echo $_SESSION['userur']; ?>;

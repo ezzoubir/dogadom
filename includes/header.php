@@ -10,8 +10,8 @@
         <!-- main menu -->
         <ul id="mainmenu">
             <li class="home_icon"><span class="circle_effect"></span><a href="<?php echo BASE_URL; ?>">Accueil</a></li>
-            <li><a href="annonces">Annonces</a></li>
-            <li><a href="espace_annonceurs">Espace Annonceurs</a></li>
+            <li><a href="<?php echo BASE_URL; ?>annonces">Annonces</a></li>
+            <li><a href="<?php echo BASE_URL; ?>pagesfacebook">Pages Facebook</a></li>
             <?php if(isset($_SESSION['id_membre'])) { ?>
             <li><a href="<?php echo BASE_URL; ?>profil"><?php checkribUser($_SESSION['id_membre']); ?> Mon profil</a></li>
             <li><a href="<?php echo BASE_URL; ?>deconnexion">Deconnexion</a></li>
