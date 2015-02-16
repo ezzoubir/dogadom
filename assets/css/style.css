@@ -219,6 +219,7 @@ ul.sidebar_cat li a															{text-decoration: none;}
 
 /*Page404*/
 .page404				{width: 300px; margin: 0 auto;}
+.pagefb				    {width: 900px; margin: 0 auto;text-align: center;padding-top: 20px;padding-bottom: 20px;}
 .heading_404			{font-size: 200px; text-align: center; line-height: 1em; margin-bottom: 5px;}
 .text_404				{text-align: center; font-size: 24px; line-height: 1em; margin-bottom: 30px;}
 .search_form			{float: left; position: relative; margin-bottom: 30px;}

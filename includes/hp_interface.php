@@ -60,6 +60,7 @@
             </div>
         </div>
         <!-- features boxes end -->
+        <?php if(isset($_SESSION['id_membre'])) { ?>
         <!-- recent works -->
         <div class="grid_12">
             <div class="divider_page">
@@ -72,8 +73,10 @@
         </div>
         <div id="recentWorks">
             <?php
-                $sql='SELECT * FROM ads WHERE active = 1 and finished=0 and aid NOT IN (SELECT ad_id from shares where user_id='.$_SESSION['id_membre'].') order by id desc limit 6';
+                $sql='SELECT * FROM ads WHERE active = 1 and nbr_share > 0 and finished=0 and aid NOT IN (SELECT ad_id from shares where user_id='.$_SESSION['id_membre'].') order by id limit 6';
                 $req=mysql_query($sql);
+                $num = mysql_num_rows($req);
+                if($num>0) {
                 while($data=mysql_fetch_array($req)){
             ?>
             <!-- a work -->
@@ -98,10 +101,11 @@
                 </div>
             </div>
             <!-- a work end -->
-            <?php } ?>
+            <?php } } ?>
             
         </div>
         <!-- recent works end -->
+         <?php }?>
         <!-- our clients -->
         <div class="grid_12">
             <div class="divider_page">

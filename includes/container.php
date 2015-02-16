@@ -15,6 +15,9 @@
 		case '6':
 			include 'basic/profil.php';
 			break;
+		case '7':
+			include 'basic/view_pages.php';
+			break;
 		default:
 			include 'hp_interface.php';
 			break;

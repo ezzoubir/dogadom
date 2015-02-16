@@ -42,8 +42,6 @@ if(isset($header_article_facebook))
   <link rel="stylesheet" type="text/css" href="assets/css/ie8.css" />
 <![endif]-->
 <link rel="stylesheet" href="assets/css/jquery_popup.css" />
-
-</script>
 </head>
 <body>
 <div id='fb-root'></div>

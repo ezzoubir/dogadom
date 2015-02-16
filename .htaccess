@@ -6,5 +6,6 @@ RewriteRule ^ad-(.*)$ index.php?language=fr&page=3&tp=basic&idad=$1
 RewriteRule ^contact$ index.php?language=fr&page=4&tp=contact
 RewriteRule ^statics$ index.php?language=fr&page=5&tp=premium
 RewriteRule ^profil$ index.php?language=fr&page=6&tp=basic
+RewriteRule ^pagesfacebbok$ index.php?language=fr&page=7&tp=basic
 RewriteRule ^deconnexion$ index.php?language=fr&logout
 
