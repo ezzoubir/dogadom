@@ -1,11 +1,11 @@
 <?php
 	if(isset($_POST['delete']))
 	{
-	   $sql='delete from paiements where id='.GetImageButtonValue($_POST['delete']);
+	   $sql='update paiements set deleted = 1 where id='.GetImageButtonValue($_POST['delete']);
 	   mysql_query($sql);
 
 	}
-	$sql=mysql_query('select * from paiements order by id desc');
+	$sql=mysql_query('select * from paiements where deleted = 0 order by id desc');
 ?>
 <div class="row">
                 <div class="col-lg-12">
@@ -40,7 +40,7 @@
 											<td><?php echo getUserNameByAd($data['user_id']); ?></td>
                                             <td><?php echo $data['total']; ?> Dhs</td>
 											<td><?php echo $data['created']; ?></td>
-											<td><input type="image" name="delete[<?php echo $data['id']; ?>]" src="imgs/b_drop.gif" onclick='javascript: if(confirm("Êtes-vous certain de supprimer cette page facebook ?")){this.submit();} else return false;'></td>
+											<td><input type="image" name="delete[<?php echo $data['id']; ?>]" src="imgs/b_drop.gif" onclick='javascript: if(confirm("Êtes-vous certain de supprimer ce paiement ?")){this.submit();} else return false;'></td>
                                         </tr>
 									<?php
 										}

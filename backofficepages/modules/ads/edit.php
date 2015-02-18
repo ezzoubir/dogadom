@@ -144,6 +144,10 @@ function ProposeFichier($UploadingFile)
                                                 <option value="female" <?php if(isset($_GET['id']) && $data['sex']=='female'){ echo 'selected'; } ?>>Female</option>
                                             </select>
                                         </div>
+                                        <div class="form-group">
+                                            <label>N° Share</label>
+                                            <input class="form-control" name="nbr_share" value="<?php if(isset($_GET['id'])){ echo $data['nbr_share']; } ?>">
+                                        </div>
                                         <?php if(isset($_GET['id'])){ ?>
 										<button type="submit" name="updatead" class="btn btn-default">Update</button>
                                         <?php } else { ?>

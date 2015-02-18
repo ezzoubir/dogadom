@@ -1,6 +1,11 @@
 <?php
+    if(isset($_POST['delete']))
+    {
+       $sql='update ads set deleted = 1 where id='.GetImageButtonValue($_POST['delete']);
+       mysql_query($sql);
 
-	$sql=mysql_query('select * from ads order by id desc');
+    }
+	$sql=mysql_query('select * from ads where deleted = 0 order by id desc');
 ?>
 <div class="row">
                 <div class="col-lg-12">
@@ -29,6 +34,7 @@
                                             <th>From Age</th>
                                             <th>To Age</th>
                                             <th>Sex</th>
+                                            <th>N° Share</th>
                                             <th>Active</th>
                                             <th>Actions</th>
                                         </tr>
@@ -46,8 +52,9 @@
                                             <td><?php echo $data['age1']; ?></td>
                                             <td><?php echo $data['age2']; ?></td>
                                             <td><?php echo $data['sex']; ?></td>
+                                            <td><?php echo $data['nbr_share']; ?></td>
                                             <td><input type="checkbox" name="active[<?php echo $data['id']; ?>]" <?php if($data['active']==1) echo ' checked '; ?>></td>
-                                            <td><a href="index.php?action=edit_ad&id=<?php echo $data['id']; ?>"><i class="fa fa-edit fa-fw"></i> Edit</a></td>
+                                            <td><a href="index.php?action=edit_ad&id=<?php echo $data['id']; ?>"><i class="fa fa-edit fa-fw"></i> Edit</a>&nbsp;&nbsp;<input type="image" name="delete[<?php echo $data['id']; ?>]" src="imgs/b_drop.gif" onclick='javascript: if(confirm("Êtes-vous certain de supprimer cette annonce ?")){this.submit();} else return false;'></td>
                                         </tr>
 									<?php
 										}

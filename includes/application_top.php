@@ -252,6 +252,19 @@ function truncate($string, $max_length = 80, $replacement = '', $trunc_at_space 
   return $data['company'];
 }
 
+
+  function getTotalUserBasic(){
+      $sql=mysql_query('select count(*) as total from users where type = "basic"');
+      $data=mysql_fetch_array($sql);
+      return $data['total'];
+  }
+
+  function getTotalUserPremium(){
+      $sql=mysql_query('select count(*) as total from users where type = "Premium"');
+      $data=mysql_fetch_array($sql);
+      return $data['total'];
+  }
+
   function getPageStaticTitre($id)
   {
         $sql='select * from  '.PREFIXE_BDD.'pages_statiques  where id_page="'.(int)$id.'"';

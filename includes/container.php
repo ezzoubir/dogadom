@@ -18,6 +18,12 @@
 		case '7':
 			include 'basic/view_pages.php';
 			break;
+		case '8':
+			include 'basic/detail_page.php';
+			break;
+		case '404':
+			include '404.php';
+			break;
 		default:
 			include 'hp_interface.php';
 			break;

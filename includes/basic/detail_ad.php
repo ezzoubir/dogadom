@@ -1,5 +1,6 @@
 <!-- header text -->
-    <?php 
+    <?php
+        if(isset($_SESSION['id_membre']) && isset($_SESSION['userur'])) { 
         $sql='select * from ads where aid="'.$_GET['idad'].'" and active = 1  and finished = 0 and nbr_share > 0 ';
         $req=mysql_query($sql);
         $data=mysql_fetch_array($req);
@@ -86,3 +87,4 @@
         <div class="clearfix"></div>
     </div>
     <!-- container 12 end -->
+    <?php } else { header('LOCATION:404'); } ?>

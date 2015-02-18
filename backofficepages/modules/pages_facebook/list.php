@@ -1,11 +1,11 @@
 <?php
 	if(isset($_POST['delete']))
 	{
-	   $sql='delete from pages_facebook where id='.GetImageButtonValue($_POST['delete']);
+	   $sql='update pages_facebook set deleted = 1 where id='.GetImageButtonValue($_POST['delete']);
 	   mysql_query($sql);
 
 	}
-	$sql=mysql_query('select * from pages_facebook order by id desc');
+	$sql=mysql_query('select * from pages_facebook where deleted = 0 order by id desc');
 ?>
 <div class="row">
                 <div class="col-lg-12">
@@ -27,7 +27,10 @@
                                     <thead>
                                         <tr>
                                             <th>Company</th>
+                                            <th>Id Page Facebook</th>
                                             <th>Page Facebook</th>
+                                            <th>N° Like</th>
+                                            <th>Active</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -37,8 +40,11 @@
 									?>
                                         <tr class="odd gradeX">
 											<td><?php echo getCompanyName($data['user_id']); ?></td>
+                                            <td><?php echo $data['page_id']; ?></td>
 											<td><a href="<?php echo $data['page_url']; ?>"><?php echo $data['page_url']; ?></a></td>
-											<td><input type="image" name="delete[<?php echo $data['id']; ?>]" src="imgs/b_drop.gif" onclick='javascript: if(confirm("Êtes-vous certain de supprimer cette page facebook ?")){this.submit();} else return false;'></td>
+                                            <td><?php echo $data['nbr_like']; ?></td>
+                                            <td><input type="checkbox" name="active[<?php echo $data['id']; ?>]" <?php if($data['active']==1) echo ' checked '; ?>></td>
+                                            <td><a href="index.php?action=edit_pf&id=<?php echo $data['id']; ?>"><i class="fa fa-edit fa-fw"></i> Edit</a>&nbsp;&nbsp;<input type="image" name="delete[<?php echo $data['id']; ?>]" src="imgs/b_drop.gif" onclick='javascript: if(confirm("Êtes-vous certain de supprimer cette page facebook ?")){this.submit();} else return false;'></td>
                                         </tr>
 									<?php
 										}

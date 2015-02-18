@@ -1,4 +1,5 @@
 	<?php
+		if(isset($_SESSION['id_membre']) && isset($_SESSION['userur'])) { 
 		/*$sql='SELECT * FROM pages_facebook WHERE active = 1 and nbr_like > 0 and finished=0 and id NOT IN (SELECT pf_id from likes where user_id='.$_SESSION['id_membre'].') order by id limit 0,1';
         $req=mysql_query($sql);
         $data=mysql_fetch_array($req);
@@ -73,3 +74,4 @@
 		<!-- features boxes end -->
 	</div>
 	<!-- container 12 end -->
+	<?php } else { header('LOCATION:404'); } ?>

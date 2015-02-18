@@ -26,7 +26,6 @@
                                             <th>Title</th>
                                             <th>Share User</th>
                                             <th>Paye</th>
-                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -39,7 +38,6 @@
 											<td><?php echo $data['title']; ?></td>
 											<td><?php echo getUserNameByAd($data['user_id']); ?></td>
 											<td><?php echo $data['paye']; ?></td>
-											<td><a href="index.php?action=edit_ad&id=<?php echo $data['id']; ?>"><i class="fa fa-edit fa-fw"></i> Edit</a></td>
                                         </tr>
 									<?php
 										}

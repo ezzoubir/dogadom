@@ -19,28 +19,26 @@
             <div class="grid_4 alpha">
                 <!-- a feature box -->
                 <div class="feature_box">
-                    <div class="feature_icon"><a href="sliders.html" class="users_icons32 icon32_5"></a></div>
+                    <div class="feature_icon"><a href="#" class="users_icons32 icon32_5"></a></div>
                     <div class="feature_content">
                         <div class="feature_heading">
                             <div class="medium">Membre</div>
                         </div>
                         <p class="feature_desc">En tant que membre, vous pouvez gagner simplement en partageant toutes les publicités que nous affichons.</p>
                     </div>
-                    <div class="feature_link"><a href="sliders.html" class="arrows_icons16 icon16_5 tooltip_s" title="Read More"></a></div>
                 </div>
                 <!-- a feature box end -->
             </div>
             <div class="grid_4 lambda">
                 <!-- a feature box -->
                 <div class="feature_box">
-                    <div class="feature_icon"><a href="portfolio_one_column.html" class="users_icons32 icon32_4"></a></div>
+                    <div class="feature_icon"><a href="#" class="users_icons32 icon32_4"></a></div>
                     <div class="feature_content">
                         <div class="feature_heading">
                             <div class="medium">Annonceur</div>
                         </div>
                         <p class="feature_desc">Vous pouvez annoncer votre publicité <br/>pour aider à augmenter la circulation et vos ventes.<br/></p>
                     </div>
-                    <div class="feature_link"><a href="portfolio_one_column.html" class="arrows_icons16 icon16_5 tooltip_s" title="Read More"></a></div>
                 </div>
                 <!-- a feature box end -->
             </div>
@@ -54,7 +52,6 @@
                         </div>
                         <p class="feature_desc">Nous sommes experts en nouvelles solutions d'affaires dans un environnement gagnant-gagnant.</p>
                     </div>
-                    <div class="feature_link"><a href="contact.html" class="arrows_icons16 icon16_5 tooltip_s" title="Read More"></a></div>
                 </div>
                 <!-- a feature box end -->
             </div>

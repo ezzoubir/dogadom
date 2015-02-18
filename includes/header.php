@@ -11,11 +11,12 @@
         <ul id="mainmenu">
             <li class="home_icon"><span class="circle_effect"></span><a href="<?php echo BASE_URL; ?>">Accueil</a></li>
             <li><a href="<?php echo BASE_URL; ?>annonces">Annonces</a></li>
-            <li><a href="<?php echo BASE_URL; ?>pagesfacebbok">Pages Facebook</a></li>
             <?php if(isset($_SESSION['id_membre'])) { ?>
+            <li><a href="<?php echo BASE_URL; ?>mespages-fb">Pages Facebook</a></li>
             <li><a href="<?php echo BASE_URL; ?>profil"><?php checkribUser($_SESSION['id_membre']); ?> Mon profil</a></li>
             <li><a href="<?php echo BASE_URL; ?>deconnexion">Deconnexion</a></li>
             <?php } else { ?>
+            <li><a href="<?php echo BASE_URL; ?>pages-fb">Pages Facebook</a></li>
             <li><a href="/login.php?provider=facebook<?php if(isset($_GET['ur'])) { echo '&ur='.$_GET['ur']; } ?>">Se connecter via Facebook</a></li>
             <?php } ?>
             <li class="contact_icon"><span class="circle_effect"></span><a href="<?php echo BASE_URL; ?>/contact">Contact</a></li>

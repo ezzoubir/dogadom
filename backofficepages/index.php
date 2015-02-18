@@ -129,7 +129,15 @@ if(FCKEDITOR)
                             <a href="index.php?action=shares"><i class="fa fa-share-alt fa-fw"></i> Shares</a>
                         </li>
 						<li>
-                            <a href="index.php?action=pages_facebook"><i class="fa fa-file-o fa-fw"></i> Pages Facebook</a>
+                            <a href="#"><i class="fa fa-file-o fa-fw"></i> Pages Facebook<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="index.php?action=pages_facebook">Liste des Pages FB</a>
+                                </li>
+                                <li>
+                                    <a href="index.php?action=edit_pf">Ajouter une Page FB</a>
+                                </li>
+                            </ul>
                         </li>
 						<li>
                             <a href="index.php?action=paiements"><i class="fa fa-money fa-fw"></i> Paiements</a>

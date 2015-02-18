@@ -1,6 +1,11 @@
 <?php
+    if(isset($_POST['delete']))
+    {
+       $sql='update users set deleted = 1 where id='.GetImageButtonValue($_POST['delete']);
+       mysql_query($sql);
 
-	$sql=mysql_query('select * from users where type="basic" order by id desc');
+    }
+	$sql=mysql_query('select * from users where type="basic" and deleted = 0 order by id desc');
 ?>
 <div class="row">
                 <div class="col-lg-12">
@@ -47,7 +52,7 @@
                                             <td><?php echo $data['city']; ?></td>
                                             <td><?php echo $data['country']; ?></td>
                                             <td><input type="checkbox" name="active[<?php echo $data['id']; ?>]" <?php if($data['active']==1) echo ' checked '; ?>></td>
-                                            <td><a href="index.php?action=users&id=<?php echo $data['id']; ?>"><i class="fa fa-edit fa-fw"></i> Edit</a></td>
+                                            <td><a href="index.php?action=edit_user&id=<?php echo $data['id']; ?>"><i class="fa fa-edit fa-fw"></i> Edit</a>&nbsp;&nbsp;<input type="image" name="delete[<?php echo $data['id']; ?>]" src="imgs/b_drop.gif" onclick='javascript: if(confirm("Êtes-vous certain de supprimer cet utilisateur ?")){this.submit();} else return false;'></td>
                                         </tr>
 									<?php
 										}

@@ -12,12 +12,10 @@
         <!-- portfolio items -->
         <div class="portfolio_items four_columns">
             <?php
-				if(isset($_SESSION['id_membre'])) {
-                $sql='SELECT * FROM pages_facebook WHERE active = 1 and nbr_like > 0 and finished=0 and id NOT IN (SELECT pf_id from likdes where user_id='.$_SESSION['id_membre'].') order by id';
-                } else {
-				$sql='SELECT * FROM pages_facebook WHERE active = 1 and nbr_like > 0 and finished=0 and id NOT IN (SELECT pf_id from likdes) order by id';
-				}
+				$sql='SELECT * FROM pages_facebook WHERE active = 1 and nbr_like > 0 and finished=0 and id NOT IN (SELECT pf_id from likes) order by id';
 				$req=mysql_query($sql);
+                $nmo = mysql_num_rows($req);
+                if($nmo>0) {
                 while($data=mysql_fetch_array($req)) {
             ?>
             <!-- a portfolio item -->
@@ -48,7 +46,7 @@
                 </div>
             </div>
             <!-- a portfolio item end -->
-            <?php } ?>
+            <?php } } else { echo 'no facebook page'; } ?>
         </div>
         <!-- portfolio items end -->
     </div>
