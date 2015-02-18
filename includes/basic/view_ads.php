@@ -12,8 +12,12 @@
         <!-- portfolio items -->
         <div class="portfolio_items four_columns">
             <?php
+				if(isset($_SESSION['id_membre'])) {
                 $sql='SELECT * FROM ads WHERE active = 1 and nbr_share > 0 and finished=0 and aid NOT IN (SELECT ad_id from shares where user_id='.$_SESSION['id_membre'].') order by id';
-                $req=mysql_query($sql);
+                } else {
+				$sql='SELECT * FROM ads WHERE active = 1 and nbr_share > 0 and finished=0 and aid NOT IN (SELECT ad_id from shares) order by id';
+				}
+				$req=mysql_query($sql);
                 while($data=mysql_fetch_array($req)) {
             ?>
             <!-- a portfolio item -->
@@ -30,13 +34,19 @@
                         <!-- hover effect -->
                         <div class="hover">
                             <div class="work_links">
+							<?php if(isset($_SESSION['id_membre'])) { ?>
                                 <div><a href="<?php echo BASE_URL.'ad-'.$data['aid']; ?>" class="misc_white_icons16 icon16_67" title="<?php echo $data['title']; ?>"></a></div>
+							<?php } else { ?>
+								<div><a href="#" class="misc_white_icons16 icon16_67" title="<?php echo $data['title']; ?>"></a></div>
+							<?php } ?>
                             </div>
                             <div class="clearfix"></div>
                             <!-- social links -->
                             <div class="social_links">
                                 <div class="share_icons">
-                                    <a href="" target="_blank" class="tooltip_s" title="Total de partage sur Facebook"><?php echo getnbrTotalShare($data['aid']); ?></a>
+								<?php if(isset($_SESSION['id_membre'])) { ?>
+                                    <a href="#" target="_blank" class="tooltip_s" title="Total de partage sur Facebook"><?php echo getnbrTotalShare($data['aid']); ?></a>
+								<?php } ?>
                                 </div>
                             </div>
                             <!-- social links end -->

@@ -11,7 +11,7 @@
 	<div class="container_12">
 		<!-- container with sidebar -->
 		<div class="content right grid_9">
-			<div class="divider_page"><h4>Restes en contact avec nous !</h4></div>
+			<div class="divider_page"><h4>Restez en contact avec nous !</h4></div>
 			<div class="contact_form">
 				<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" name="messageform">
 					<div class="grid_3 alpha">
@@ -24,9 +24,9 @@
 						<input name="sujet_contact" type="text" value="Sujet:" class="input-text" />
 					</div>
 					<div class="grid_9 alpha omega">
-						<textarea name="message" class="text-area">Message:</textarea>
+						<textarea name="message_contact" class="text-area">Message:</textarea>
 						<div class="alert-contact"></div>
-						<span class="send-message sc_button medium">Envoyer</span>
+						<span class="send-message sc_button medium" type="submit" name="envoyer_contact">Envoyer</span>
 					</div>
 				</form>
 			</div>

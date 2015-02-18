@@ -115,7 +115,7 @@ DEFINE('MAIL_SIGNATURE','DROITS POUR TOUS');
 						$_SESSION['likemypage']=$ro['likemypage'];
 
 				      // on met à jour derniere conncection
-					  $sql='update  users set date_login="'.date('Y-m-d').'" where id="'.$_SESSION['id_membre'].'"';
+					  $sql='update users set date_login="'.date('Y-m-d').'" where id="'.$_SESSION['id_membre'].'"';
 					  mysql_query($sql);
 					  
 					  header('LOCATION:annonces');

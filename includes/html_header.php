@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:fb="http://ogp.me/ns/fb#">
 <head>
 <base href="<?php echo BASE_URL; ?>" />
 <link rel="shortcut icon" type="image/x-icon" href="<?php echo BASE_URL; ?>favicon.ico" />
@@ -45,7 +45,7 @@ if(isset($header_article_facebook))
 </head>
 <body>
 <div id='fb-root'></div>
-<script src='http://connect.facebook.net/en_US/all.js'></script>
+<script src='http://connect.facebook.net/fr_FR/all.js'></script>
 <?php 
   include 'header.php';
   include 'container.php';

@@ -231,6 +231,19 @@ function truncate($string, $max_length = 80, $replacement = '', $trunc_at_space 
       
       return $data['total'];
   }
+  
+  function getDetailPageFb($id_fb,$contenu) {
+		$url="https://graph.facebook.com/".$id_fb;
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch,CURLOPT_URL,$url);
+		curl_setopt($ch,CURLOPT_RETURNTRANSFER,1);
+		curl_setopt($ch,CURLOPT_CONNECTTIMEOUT,2);
+		$content = curl_exec($ch);
+		$content = json_decode($content);
+		
+		return $content->$contenu;
+  }
 
   function getCompanyName($id){
   $sql=mysql_query('select * from users where id="'.$id.'"');
@@ -288,25 +301,24 @@ function truncate($string, $max_length = 80, $replacement = '', $trunc_at_space 
   
  
   
-  if(isset($_POST['CONTACT_FORM_ENVOYER']))
+  if(isset($_POST['envoyer_contact']))
   {
   
       // formulaire de contact traitement
         include 'class/phpmailer.class.inc.php';
 
         $message='<div>';
-        $message.=$_POST['FORM_NAME'].'<br /><br />
-                 '.FORM_SUJET. ' : '.$_POST['FORM_SUJET'].'<br />
-                 '.FORM_VILLE. ' : '.$_POST['FORM_VILLE'].'<br />
-                 '.FORM_EMAIL. ' : '.$_POST['FORM_EMAIL'].'<br />
-                 '.FORM_MESSAGE. ' : '.$_POST['FORM_MESSAGE'].'<br />';
+        $message.=$_POST['nom_contact'].'<br /><br />
+                 '.FORM_SUJET. ' : '.$_POST['sujet_contact'].'<br />
+                 '.FORM_EMAIL. ' : '.$_POST['email_contact'].'<br />
+                 '.FORM_MESSAGE. ' : '.$_POST['message_contact'].'<br />';
         $message.='</div>';
         $mail = new PHPmailer();
         $mail->IsHTML(true);
         $mail->From=EMAIL_EXP;
-        $mail->FromName=stripslashes($_POST['FORM_NAME']);
-        $mail->Subject=stripslashes('[Message de :]['.$_POST['FORM_NAME'].']');   
-        $mail->AddReplyTo($_POST['FORM_EMAIL']);//$EmailExp
+        $mail->FromName=stripslashes($_POST['nom_contact']);
+        $mail->Subject=stripslashes('[Message de :]['.$_POST['nom_contact'].']');   
+        $mail->AddReplyTo($_POST['email_contact']);//$EmailExp
         $mail->AddAddress(EMAIL_ADMIN);
         if(EMAIL_ADMIN2!='')
           $mail->AddAddress(EMAIL_ADMIN2);
@@ -322,7 +334,9 @@ function truncate($string, $max_length = 80, $replacement = '', $trunc_at_space 
     unset($_SESSION['id_membre']);
     unset($_SESSION['displayname']);
     unset($_SESSION['userur']);
+    unset($_SESSION['likemypage']);
     header('LOCATION:'.BASE_URL);
+	
  }
 
 ?>
