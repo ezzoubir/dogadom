@@ -187,10 +187,11 @@
 	line-height: 18px;
 }
 .sc_button.medium{
-	height: 24px;
+	/*height: 24px;*/
 	padding: 4px 12px;
 	font-size: 14px;
 	line-height: 24px;
+	border:0 none;
 }
 .sc_button.large{
 	height: 32px;

@@ -15,18 +15,18 @@
 			<div class="contact_form">
 				<form action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" name="messageform">
 					<div class="grid_3 alpha">
-						<input name="nom_contact" type="text" value="Nom:" class="input-text" />
+						<input name="nom_contact" type="text" placeholder="Nom:" class="input-text" required />
 					</div>
 					<div class="grid_3 lambda">
-						<input name="email_contact" type="text" value="E-Mail:" class="input-text" />
+						<input name="email_contact" type="text" placeholder="E-Mail:" class="input-text" required />
 					</div>
 					<div class="grid_3 omega">
-						<input name="sujet_contact" type="text" value="Sujet:" class="input-text" />
+						<input name="sujet_contact" type="text" placeholder="Sujet:" class="input-text" required />
 					</div>
 					<div class="grid_9 alpha omega">
-						<textarea name="message_contact" class="text-area">Message:</textarea>
+						<textarea name="message_contact" class="text-area" placeholder="Message" required ></textarea>
 						<div class="alert-contact"></div>
-						<span class="send-message sc_button medium" type="submit" name="envoyer_contact">Envoyer</span>
+						<button class="send-message sc_button medium btnsend" type="submit" name="envoyer_contact">Envoyer</button>
 					</div>
 				</form>
 			</div>

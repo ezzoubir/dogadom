@@ -8,7 +8,7 @@ a:hover																							{color: #333;}
 
 /*Main Menu*/
 #logo																							{background:url('../images/logo/blue.png') no-repeat 10px 15px;}
-#logo img																						{opacity: 0;}
+#logo img																						{width:135px;}
 
 
 #header							{background-color: #fefefe;}

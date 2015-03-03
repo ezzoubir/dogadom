@@ -5,7 +5,7 @@
     <!-- menu -->
     <div id="header">
         <!-- logo -->
-        <div id="logo"><a href="/"><img src="assets/images/logo.png" alt="logo" /></a></div>
+        <div id="logo"><a href="<?php echo BASE_URL; ?>"><img src="assets/images/logo.png" alt="logo" /></a></div>
         <!-- logo end -->
         <!-- main menu -->
         <ul id="mainmenu">
@@ -19,7 +19,7 @@
             <li><a href="<?php echo BASE_URL; ?>pages-fb">Pages Facebook</a></li>
             <li><a href="/login.php?provider=facebook<?php if(isset($_GET['ur'])) { echo '&ur='.$_GET['ur']; } ?>">Se connecter via Facebook</a></li>
             <?php } ?>
-            <li class="contact_icon"><span class="circle_effect"></span><a href="<?php echo BASE_URL; ?>/contact">Contact</a></li>
+            <li class="contact_icon"><span class="circle_effect"></span><a href="<?php echo BASE_URL; ?>contact">Contact</a></li>
         </ul>
         <!-- main menu end -->
         <!-- search bar -->

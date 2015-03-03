@@ -316,7 +316,7 @@ function truncate($string, $max_length = 80, $replacement = '', $trunc_at_space 
   
   if(isset($_POST['envoyer_contact']))
   {
-  
+    
       // formulaire de contact traitement
         include 'class/phpmailer.class.inc.php';
 

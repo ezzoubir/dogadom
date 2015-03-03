@@ -494,7 +494,7 @@ body {min-width: 960px;}
 #header				{width: 940px;}
 
 /* Main Menu*/
-#header #logo			{padding: 15px 10px; position: relative; width: 135px;}
+#header #logo			{padding: 15px 46px;position: relative;width: 176px;}
 ul#mainmenu				{padding: 0; margin: 0; position: absolute; right: 150px;}
 ul#mainmenu > li		{height: 60px; padding: 0; margin: 0; float: left; position: relative;}
 ul#mainmenu > li > a	{height: 18px; padding: 21px 19px;}
@@ -744,6 +744,7 @@ ul#mainmenu li.home_icon, ul#mainmenu li.contact_icon, .mobile_link	{ display: b
 #mainmenu .home_icon, #mainmenu .contact_icon								{width: 40px; margin:0 5px 0 0;}
 #mainmenu .contact_icon																	{margin:0 0 0 5px;}
 #mainmenu .home_icon a, #mainmenu .contact_icon a							{margin: 18px 0 18px 6px;}
+.btnsend {border:0px;}
 
 .mobile_link{width: 60px; height: 60px; overflow: hidden;}
 .mobile_link .navi{ -webkit-appearance: none; -moz-appearance: none; appearance: none; border: 0; -webkit-border-radius: 0; -moz-border-radius: 0; border-radius: 0; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; width: 120px; margin: 0 10px; padding: 20px 0; border-radius: 0;}

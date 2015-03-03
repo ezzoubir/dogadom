@@ -15,7 +15,7 @@
     <div class="container_12">
         <!-- features boxes -->
         <div class="grid_12">
-            <div class="divider_page"><h2>Qui peut gagner & Principaux benefices</h2></div>
+            <div class="divider_page"><h2>Qui peut gagner</h2></div>
             <div class="grid_4 alpha">
                 <!-- a feature box -->
                 <div class="feature_box">
@@ -26,6 +26,9 @@
                         </div>
                         <p class="feature_desc">En tant que membre, vous pouvez gagner simplement en partageant toutes les publicités que nous affichons.</p>
                     </div>
+						<div class="feature_heading">
+                            <div class="small highlight">+ 10589 Membres enregistres</div>
+                        </div>
                 </div>
                 <!-- a feature box end -->
             </div>
@@ -39,6 +42,9 @@
                         </div>
                         <p class="feature_desc">Vous pouvez annoncer votre publicité <br/>pour aider à augmenter la circulation et vos ventes.<br/></p>
                     </div>
+						<div class="feature_heading">
+                            <div class="small highlight">+ 23260 Publicites partagees</div>
+                        </div>
                 </div>
                 <!-- a feature box end -->
             </div>
@@ -52,6 +58,9 @@
                         </div>
                         <p class="feature_desc">Nous sommes experts en nouvelles solutions d'affaires dans un environnement gagnant-gagnant.</p>
                     </div>
+						<div class="feature_heading">
+                            <div class="small highlight">256000 Dhs Payes a nos membres</div>
+                        </div>
                 </div>
                 <!-- a feature box end -->
             </div>
