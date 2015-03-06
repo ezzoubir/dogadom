@@ -5,6 +5,24 @@
        mysql_query($sql);
 
     }
+
+    if(isset($_POST['save']))
+  {
+      // id_membre =
+      $id_ad=GetImageButtonValue($_POST['save']);
+      if(isset($_POST['active'][$id_ad]))
+      {
+          $sql='update  ads set active="1" where id="'.$id_ad.'"';
+          mysql_query($sql);
+      } else
+      {
+      
+        $sql='update ads set active="0" where id="'.$id_ad.'"';
+        mysql_query($sql);
+      }
+    }
+
+
 	$sql=mysql_query('select * from ads where deleted = 0 order by id desc');
 ?>
 <div class="row">
@@ -23,6 +41,7 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="table-responsive">
+                            <form role="form" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
@@ -54,13 +73,16 @@
                                             <td><?php echo $data['sex']; ?></td>
                                             <td><?php echo $data['nbr_share']; ?></td>
                                             <td><input type="checkbox" name="active[<?php echo $data['id']; ?>]" <?php if($data['active']==1) echo ' checked '; ?>></td>
-                                            <td><a href="index.php?action=edit_ad&id=<?php echo $data['id']; ?>"><img src="imgs/edit.png" /></a>&nbsp;&nbsp;<input type="image" name="delete[<?php echo $data['id']; ?>]" src="imgs/delete.png" onclick='javascript: if(confirm("Êtes-vous certain de supprimer cette annonce ?")){this.submit();} else return false;'></td>
+                                            <td><a href="index.php?action=edit_ad&id=<?php echo $data['id']; ?>"><img src="imgs/edit.png" /></a>&nbsp;&nbsp;<input type="image" name="delete[<?php echo $data['id']; ?>]" src="imgs/delete.png" onclick='javascript: if(confirm("Êtes-vous certain de supprimer cette annonce ?")){this.submit();} else return false;'>
+
+                                            <input type="image" name="save[<?php echo $data['id']; ?>]" src="imgs/save.png"></td>
                                         </tr>
 									<?php
 										}
 									?>
                                     </tbody>
                                 </table>
+                            </form>
                             </div>
                             <!-- /.table-responsive -->
                         </div>
