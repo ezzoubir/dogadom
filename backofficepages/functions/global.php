@@ -85,6 +85,13 @@ function getUserNameByAd($id){
 	return $data['first_name'].' '.$data['last_name'];
 }
 
+function getUserNameByIdfb($id){
+	$sql=mysql_query('select * from users where uid_facebook="'.$id.'"');
+	$data=mysql_fetch_array($sql);
+	
+	return $data['first_name'].' '.$data['last_name'];
+}
+
 /* Suppression d'un repertoire */
 function deltree($dossier)
 {

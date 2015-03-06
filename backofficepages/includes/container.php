@@ -19,11 +19,11 @@
 	  include 'modules/annonceurs/list.php';
       break;
 	  
-	  case 'edit_annonceur' :
+	 case 'edit_annonceur' :
 	  include 'modules/annonceurs/edit.php';
       break;
 	  
-	  case 'ads' :
+	case 'ads' :
 	  include 'modules/ads/list.php';
       break;
 	  
@@ -31,15 +31,23 @@
 	  include 'modules/ads/edit.php';
       break;
 	  
-	  case 'shares' :
+	case 'shares' :
 	  include 'modules/shares/list.php';
       break;
 	  
 	  case 'edit_share' :
 	  include 'modules/shares/edit.php';
       break;
+
+      case 'likes' :
+        include 'modules/likes/list.php';
+      break;
+        
+        case 'edit_like' :
+        include 'modules/likes/edit.php';
+      break;
 	  
-	  case 'pages_facebook' :
+	case 'pages_facebook' :
         include 'modules/pages_facebook/list.php';
       break;
 

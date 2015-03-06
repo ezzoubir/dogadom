@@ -15,7 +15,7 @@ if(FCKEDITOR)
     include 'fckeditor/header_fck.php';
 }
 ?>
-<title>Administration</title>
+<title>Administration - WinBox</title>
 	<link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- MetisMenu CSS -->
@@ -58,7 +58,7 @@ if(FCKEDITOR)
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="index.html">Administration ShareWin</a>
+                <a class="navbar-brand" href="index.html">Administration - WinBox</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -127,6 +127,9 @@ if(FCKEDITOR)
                         </li>
 						<li>
                             <a href="index.php?action=shares"><i class="fa fa-share-alt fa-fw"></i> Shares</a>
+                        </li>
+                        <li>
+                            <a href="index.php?action=likes"><i class="fa fa-thumbs-up fa-fw"></i> Likes</a>
                         </li>
 						<li>
                             <a href="#"><i class="fa fa-file-o fa-fw"></i> Pages Facebook<span class="fa arrow"></span></a>
