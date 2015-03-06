@@ -12,14 +12,17 @@ function ConvertDateToFr($DateUS)
 }
 
 function do_update($table,$fields,$id){
+
+	unset($fields['update']);
+
 	$i = 0;
 	$len = count($fields);
 	$sql='update '.$table.' set ';
 	foreach($fields as $key=>$val) {
 		if($i == $len - 1) {
-			$sql .=' '.$key.' = '.$val.'';
+			$sql .=' '.$key.' = "'.$val.'"';
 		} else {
-			$sql .=' '.$key.' = '.$val.' ,';
+			$sql .=' '.$key.' = "'.$val.'" ,';
 		}
 	$i++;
 	}

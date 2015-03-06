@@ -26,17 +26,17 @@ function ProposeFichier($UploadingFile)
 
     @ $upload=ProposeFichier($_FILES['pic_big']);
 
-	if($_POST['update']){
+	if(isset($_POST['update'])){
 		if(do_update('users',$_POST,$_GET['id'])){
-			$msg_success = 'les données ont été modifiés avec succès';
+			$msg_success = 'les donnÃ©es ont Ã©tÃ© modifiÃ©s avec succÃ¨s';
 		} else {
-			$msg_danger = 'erreur de modification'
+			$msg_danger = 'erreur de modification';
 		}
 	}
 
     if(isset($_POST['addad'])){
         if(do_insert('users',$_POST)){
-            $msg_success = 'les données ont été enregistrés avec succès';
+            $msg_success = 'les donnÃ©es ont Ã©tÃ© enregistrÃ©s avec succÃ¨s';
         } else {
             $msg_danger = 'erreur d\'enregistrement';
         }
@@ -89,8 +89,8 @@ function ProposeFichier($UploadingFile)
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form"action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
-                                       <?php if(!isset($_GET['id'])){ ?>
+                                    <form role="form" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
+                                       <?php if(!isset($_GET['id']) || (isset($_GET['id']) && $data['pic_big']=='') ){ ?>
                                         <div class="form-group">
                                             <label>Image</label>
                                             <input name="pic_big" type="file"/>
@@ -145,7 +145,7 @@ function ProposeFichier($UploadingFile)
                                             </select>
                                         </div>
 										<?php if(isset($_GET['id'])){ ?>
-                                        <button type="submit" name="updatead" class="btn btn-default">Update</button>
+                                        <button type="submit" name="update" class="btn btn-default">Update</button>
                                         <?php } else { ?>
                                         <button type="submit" name="addad" class="btn btn-default">Add</button>
                                         <?php } ?>

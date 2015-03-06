@@ -5,6 +5,21 @@
        mysql_query($sql);
 
     }
+    if(isset($_POST['save']))
+  {
+      // id_membre =
+      $id_user=GetImageButtonValue($_POST['save']);
+      if(isset($_POST['active'][$id_user]))
+      {
+          $sql='update  users set active="1" where id="'.$id_user.'"';
+          mysql_query($sql);
+      } else
+      {
+      
+        $sql='update users set active="0" where id="'.$id_user.'"';
+        mysql_query($sql);
+      }
+    }
 	$sql=mysql_query('select * from users where type="basic" and deleted = 0 order by id desc');
 ?>
 <div class="row">
@@ -23,6 +38,7 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div class="table-responsive">
+                            <form role="form" action="<?php echo $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
                                 <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
@@ -43,7 +59,7 @@
 										while($data=mysql_fetch_array($sql)){
 									?>
                                         <tr class="odd gradeX">
-                                            <td><img src="<?php echo BASE_URL.RepPhoto.'pic_users/'.$data['pic_big']; ?>" width="80px"/></td>
+                                            <td><img src="<?php echo $data['pic_big']; ?>" width="80px"/></td>
                                             <td><?php echo $data['sex']; ?></td>
                                             <td><?php echo $data['first_name']; ?></td>
                                             <td><?php echo $data['last_name']; ?></td>
@@ -52,13 +68,16 @@
                                             <td><?php echo $data['city']; ?></td>
                                             <td><?php echo $data['country']; ?></td>
                                             <td><input type="checkbox" name="active[<?php echo $data['id']; ?>]" <?php if($data['active']==1) echo ' checked '; ?>></td>
-                                            <td><a href="index.php?action=edit_user&id=<?php echo $data['id']; ?>"><i class="fa fa-edit fa-fw"></i> Edit</a>&nbsp;&nbsp;<input type="image" name="delete[<?php echo $data['id']; ?>]" src="imgs/b_drop.gif" onclick='javascript: if(confirm("Êtes-vous certain de supprimer cet utilisateur ?")){this.submit();} else return false;'></td>
+                                            <td><a href="index.php?action=edit_user&id=<?php echo $data['id']; ?>"><img src="imgs/edit.png"></a>&nbsp;&nbsp;<input type="image" name="delete[<?php echo $data['id']; ?>]" src="imgs/delete.png" onclick='javascript: if(confirm("Êtes-vous certain de supprimer cet utilisateur ?")){this.submit();} else return false;'>
+                                            <input type="image" name="save[<?php echo $data['id']; ?>]" src="imgs/save.png">
+                                            </td>
                                         </tr>
 									<?php
 										}
 									?>
                                     </tbody>
                                 </table>
+                            </form>
                             </div>
                             <!-- /.table-responsive -->
                         </div>
