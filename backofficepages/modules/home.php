@@ -19,7 +19,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="index.php?action=users">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="index.php?action=ads">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -63,7 +63,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="index.php?action=shares">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="#">
+                        <a href="index.php?action=paiements">
                             <div class="panel-footer">
                                 <span class="pull-left">View Details</span>
                                 <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
