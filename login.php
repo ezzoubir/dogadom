@@ -17,6 +17,30 @@ function GetNewPass()
 				}
 				return $pass;
 		}
+
+function getAge($datebirth){
+	$birthDate = $datebirth;
+  //explode the date to get month, day and year
+  $birthDate = explode("-", $birthDate);
+  //get age from date or birthdate
+  $age = (date("md", date("U", mktime(0, 0, 0, $birthDate[0], $birthDate[1], $birthDate[2]))) > date("md")
+    ? ((date("Y") - $birthDate[2]) - 1)
+    : (date("Y") - $birthDate[2]));
+  echo $age;
+
+
+  /*
+# object oriented
+$from = new DateTime('1970-02-01');
+$to   = new DateTime('today');
+echo $from->diff($to)->y, "\n";
+
+# procedural
+echo date_diff(date_create('1970-02-01'), date_create('today'))->y, "\n";
+
+
+  */
+}
 		
 		
 if(isset($_REQUEST["provider"]))  
@@ -53,6 +77,9 @@ if(isset($_REQUEST["provider"]))
 				$_SESSION['displayname']=$ro['name'];
 				$_SESSION['userur']=$ro['uid_facebook'];
 				$_SESSION['likemypage']=$ro['likemypage'];
+				$_SESSION['age']=getAge($ro['birthday']);
+				$_SESSION['sex']=$ro['sex'];
+				$_SESSION['city']=$ro['city'];
 
 				header('LOCATION:annonces');
 		  }  
@@ -113,6 +140,9 @@ DEFINE('MAIL_SIGNATURE','DROITS POUR TOUS');
 						$_SESSION['displayname']=$ro['name'];
 						$_SESSION['userur']=$ro['uid_facebook'];
 						$_SESSION['likemypage']=$ro['likemypage'];
+						$_SESSION['age']=getAge($ro['birthday']);
+						$_SESSION['sex']=$ro['sex'];
+						$_SESSION['city']=$ro['city'];
 
 				      // on met à jour derniere conncection
 					  $sql='update users set date_login="'.date('Y-m-d').'" where id="'.$_SESSION['id_membre'].'"';

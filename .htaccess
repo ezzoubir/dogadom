@@ -9,4 +9,4 @@ RewriteRule ^profil$ index.php?language=fr&page=6&tp=basic
 RewriteRule ^pages-fb$ index.php?language=fr&page=7&tp=basic
 RewriteRule ^mespages-fb$ index.php?language=fr&page=8&tp=basic
 RewriteRule ^deconnexion$ index.php?language=fr&logout
-ErrorDocument 404 404.php
+ErrorDocument 404 /404.php
