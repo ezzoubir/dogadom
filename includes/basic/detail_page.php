@@ -1,11 +1,11 @@
 	<?php
 		if(isset($_SESSION['id_membre']) && isset($_SESSION['userur'])) { 
-		/*$sql='SELECT * FROM pages_facebook WHERE active = 1 and nbr_like > 0 and finished=0 and id NOT IN (SELECT pf_id from likes where user_id='.$_SESSION['id_membre'].') order by id limit 0,1';
+		$sql='SELECT * FROM pages_facebook WHERE active = 1 and nbr_like > 0 and finished=0 and id NOT IN (SELECT pf_id from likes where user_id="'.$_SESSION['id_membre'].'") order by id limit 0,1';
         $req=mysql_query($sql);
         $data=mysql_fetch_array($req);
 			// 178585515507054 = Facebook page ID
-		  //$url="https://graph.facebook.com/<?php echo $data['page_id'];?>";*/
-		  $url="https://graph.facebook.com/304360739620539";
+		  $url="https://graph.facebook.com/<?php echo $data['page_id'];?>";
+		  //$url="https://graph.facebook.com/304360739620539";
 		  $ch = curl_init();
 		  curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 		  curl_setopt($ch,CURLOPT_URL,$url);
@@ -39,7 +39,7 @@
 			url: 'phpajax/likepaye.php',
 			data: data,
 			success : function(){
-			window.location.href = "<?php echo BASE_URL; ?>pagesfacebook";
+				location.reload();
 			}
 		});
 	  });

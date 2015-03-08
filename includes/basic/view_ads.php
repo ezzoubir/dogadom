@@ -20,7 +20,7 @@
 				$req=mysql_query($sql);
                 while($data=mysql_fetch_array($req)) {
 
-                if($data['age1']<$_SESSION['age'] && $data['age2']>$_SESSION['age'] && ) {
+                if($data['age1']<$_SESSION['age'] && $data['age2']>$_SESSION['age'] ) {
             ?>
             <!-- a portfolio item -->
             <div class="a_item" data-cats="photography interactive">

@@ -13,7 +13,7 @@
 
 return 
 	array(
-		"base_url" => "http://www.dogadom.com/hybridauth/", 
+		"base_url" => "http://winbox.ma/hybridauth/", 
 
 		"providers" => array ( 
 			// openid providers
@@ -37,7 +37,7 @@ return
 
 			"Facebook" => array ( 
 				"enabled" => true,
-				"keys"    => array ( "id" => "1562922873946573", "secret" => "97b6d63b0abe4816135b158b92c0bd3b" )
+				"keys"    => array ( "id" => "1580439508897590", "secret" => "7068500e98d6e268dd850a5cb18c6cfd" )
 			),
 
 			"Twitter" => array ( 
