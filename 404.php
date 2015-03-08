@@ -19,7 +19,7 @@
     <!-- menu -->
     <div id="header">
         <!-- logo -->
-        <div id="logo"><a href="<?php echo BASE_URL; ?>"><img src="assets/images/logo.png" alt="logo" /></a></div>
+        <div id="logo"><a href="http://winbox.ma/"><img src="assets/images/logo.png" alt="logo" /></a></div>
         <!-- logo end -->
         <!-- main menu -->
         <ul id="mainmenu">
